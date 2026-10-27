@@ -1,6 +1,6 @@
 # Phone Atlas 3D
 
-公开源码与审查：[LYL-Z/phone-atlas-3d](https://github.com/LYL-Z/phone-atlas-3d)。在线演示通过仓库 GitHub Actions 发布，部署结果见 Actions。
+[在线浏览](https://lyl-z.github.io/phone-atlas-3d/) · [公开源码与审查](https://github.com/LYL-Z/phone-atlas-3d) · [自动检查与部署](https://github.com/LYL-Z/phone-atlas-3d/actions)
 
 ![程序化外观预览，非实物测绘](evidence/desktop-1920-back.jpg)
 
