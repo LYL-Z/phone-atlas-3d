@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>Phone Atlas 浏览器验收台</title
+  ><style>
+    body {
+      margin: 0;
+      background: #151d18;
+      color: #e5eeda;
+      font: 13px sans-serif;
+    }
+    header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 12px;
+    }
+    button {
+      padding: 10px;
+      border: 0;
+      background: #c6e9a1;
+      color: #15200f;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100dvh - 150px);
+      border: 0;
+    }
+    pre {
+      height: 70px;
+      overflow: auto;
+      margin: 6px 16px;
+    }
+    a {
+      color: #c6e9a1;
+    }
+  </style>
+  <header>
+    <strong>本地浏览器验收台</strong><button id="run">运行 10 轮验收</button
+    ><button id="save" disabled>下载测试 JSON</button
+    ><span id="status">就绪</span><a href="../">返回产品</a>
+  </header>
+  <iframe id="app" src="../" title="被测产品"></iframe>
+  <pre id="results"></pre>
+  <script type="module">
+    const iframe = document.querySelector("#app"),
+      status = document.querySelector("#status"),
+      out = document.querySelector("#results"),
+      results = [];
+    let result;
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const doc = () => iframe.contentDocument;
+    const diag = () => iframe.contentWindow.phoneAtlasDiagnostics();
+    const click = (id) => doc().querySelector(id).click();
+    async function until(fn, label) {
+      const begin = performance.now();
+      while (!fn()) {
+        if (performance.now() - begin > 20000) throw Error("Timeout: " + label);
+        await sleep(50);
+      }
+    }
+    function pass(name, evidence) {
+      results.push({ name, status: "PASS", evidence });
+      out.textContent = JSON.stringify(results, null, 2);
+    }
+    function assert(value, label) {
+      if (!value) throw Error(label);
+    }
+    document.querySelector("#run").onclick = async () => {
+      document.querySelector("#run").disabled = true;
+      results.length = 0;
+      const startedAt = new Date().toISOString();
+      try {
+        await until(
+          () => iframe.contentWindow.phoneAtlasDiagnostics,
+          "app ready",
+        );
+        doc()
+          .querySelectorAll("dialog[open]")
+          .forEach((d) => d.close());
+        const speed = doc().querySelector("#speed");
+        speed.value = "2";
+        speed.dispatchEvent(new Event("change", { bubbles: true }));
+        click("#reset");
+        await until(() => !diag().playing, "initial reset");
+        pass("启动及模块加载", { parts: diag().parts });
+        for (let cycle = 1; cycle <= 10; cycle++) {
+          status.textContent = `第 ${cycle} / 10 轮`;
+          click("#mode-explode");
+          await until(() => diag().t === 1 && !diag().playing, "explode");
+          assert(diag().status === "EXPLODED", "exploded status");
+          click('[data-select="battery"]');
+          await sleep(150);
+          assert(diag().selected === "battery", "selection sync");
+          assert(
+            doc().querySelector("#info-content h3").textContent ===
+              "6800 mAh 电池",
+            "detail sync",
+          );
+          click("#mode-xray");
+          assert(diag().xray, "xray on");
+          click("#mode-xray");
+          click("#mode-solid");
+          await sleep(150);
+          click("#mode-explode");
+          await sleep(150);
+          click("#reset");
+          await until(() => diag().t === 0 && !diag().playing, "reset");
+          await sleep(300);
+          const d = diag();
+          const drift = Math.max(
+            ...d.positions.flatMap((p) =>
+              p.position.map((v, i) => Math.abs(v - p.base[i])),
+            ),
+          );
+          assert(drift < 1e-8, "position drift " + drift);
+          assert(
+            d.hidden.length === 0 && !d.xray && !d.selected,
+            "reset state",
+          );
+          pass("拆解/聚焦/透视/快速反向/重装 " + cycle, {
+            maxDrift: drift,
+            state: d.status,
+            parts: d.parts,
+          });
+        }
+        click("#mode-explode");
+        await until(() => diag().t === 1 && !diag().playing, "explode all");
+        for (const row of doc().querySelectorAll("[data-select]")) {
+          row.click();
+          assert(
+            diag().selected === row.dataset.select,
+            "part selection " + row.dataset.select,
+          );
+          assert(
+            doc().querySelector("#info-heading").textContent === "部件档案",
+            "detail heading",
+          );
+        }
+        pass("31 个部件资料与选中 ID 同步", {
+          selectedCount: doc().querySelectorAll("[data-select]").length,
+        });
+        click("#reset");
+        await until(() => diag().t === 0 && !diag().playing, "final reset");
+        pass("最终状态还原", diag());
+        status.textContent = "全部通过";
+      } catch (error) {
+        results.push({
+          name: "浏览器验收",
+          status: "FAIL",
+          error: error.message,
+        });
+        status.textContent = "存在失败项";
+      } finally {
+        result = {
+          schemaVersion: 1,
+          startedAt,
+          finishedAt: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          viewport: { width: innerWidth, height: innerHeight },
+          results,
+        };
+        out.textContent = JSON.stringify(result, null, 2);
+        document.querySelector("#save").disabled = false;
+        document.querySelector("#run").disabled = false;
+      }
+    };
+    document.querySelector("#save").onclick = () => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(
+        new Blob([JSON.stringify(result, null, 2)], {
+          type: "application/json",
+        }),
+      );
+      a.download = "phone-atlas-browser-tests.json";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+  </script>
+</html>

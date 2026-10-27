@@ -1,0 +1,18 @@
+{
+  "browserHarness": {
+    "samples": 63,
+    "minFps": 1,
+    "maxFps": 3.8,
+    "medianFps": 1,
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 Laptop GPU (0x00002C58) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "viewport": {
+      "width": 1536,
+      "height": 769
+    },
+    "dpr": 1,
+    "drawCalls": 120,
+    "triangles": 221448
+  },
+  "limits": "Measurements are local browser render callbacks; background/screenshot captures also showed 1-48 FPS. No mobile or low-end device validation."
+}

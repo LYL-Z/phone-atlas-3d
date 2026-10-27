@@ -1,0 +1,57 @@
+export const clamp = (x) => Math.max(0, Math.min(1, x));
+export const ease = (t) => t * t * (3 - 2 * t);
+export function partProgress(t, order) {
+  const delay = Math.min(order, 5) * 0.07;
+  return ease(clamp((t - delay) / (1 - 0.35)));
+}
+export function positionAt(part, t, selected = false, out = [0, 0, 0]) {
+  const p = partProgress(t, part.explodeOrder);
+  for (let i = 0; i < 3; i++)
+    out[i] = part.assembledTransform.position[i] + part.explodeVector[i] * p;
+  if (selected) {
+    out[2] += part.assembledTransform.position[2] > 0.2 ? 1.1 : -1.1;
+  }
+  return out;
+}
+export function statusAt(state) {
+  if (state.playing || Math.abs(state.target - state.t) > 0.0001)
+    return state.target > state.t ? "EXPLODING" : "REASSEMBLING";
+  if (state.selected) return "FOCUSED";
+  return state.t === 0 ? "ASSEMBLED" : state.t === 1 ? "EXPLODED" : "EXPLODING";
+}
+export function createAnimator(store, model, device, reduced = false) {
+  const temp = [0, 0, 0];
+  const selectionOffsets = new Map(device.parts.map((p) => [p.id, 0]));
+  return {
+    update(dt) {
+      let s = store.get();
+      let t = s.t;
+      if (s.playing) {
+        const dist = s.target - t;
+        const step = reduced ? 1 : (dt * s.speed) / 5;
+        t = Math.abs(dist) <= step ? s.target : t + Math.sign(dist) * step;
+        const next = { ...s, t, playing: t !== s.target };
+        store.set({ t, playing: next.playing, status: statusAt(next) });
+        s = store.get();
+      }
+      for (const p of device.parts) {
+        const obj = model.groups.get(p.id);
+        positionAt(p, t, false, temp);
+        let offset = selectionOffsets.get(p.id);
+        const dest = s.selected === p.id ? 1 : 0;
+        offset = reduced
+          ? dest
+          : offset + (dest - offset) * (1 - Math.exp(-dt * 10));
+        selectionOffsets.set(p.id, offset);
+        temp[2] +=
+          offset * (p.assembledTransform.position[2] > 0.2 ? 1.1 : -1.1);
+        obj.position.fromArray(temp);
+        obj.visible = !s.hidden.has(p.id);
+      }
+      return t;
+    },
+    resetOffsets() {
+      selectionOffsets.forEach((v, k) => selectionOffsets.set(k, 0));
+    },
+  };
+}

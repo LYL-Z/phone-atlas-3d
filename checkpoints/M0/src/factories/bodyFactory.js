@@ -1,0 +1,2 @@
+import * as THREE from 'three';import {outline,plate,put} from './geometry.js';
+export function frameFactory(p,materials,device){const g=new THREE.Group(),w=device.dimensions.width/10,h=device.dimensions.length/10;const s=outline(w-.08,h-.08,.87);const hole=outline(w-.32,h-.32,.74);s.holes.push(new THREE.Path(hole.getPoints().reverse()));const geo=new THREE.ExtrudeGeometry(s,{depth:.675,bevelEnabled:true,bevelSize:.04,bevelThickness:.04,bevelSegments:4,curveSegments:20});geo.translate(0,0,-.3375);put(g,new THREE.Mesh(geo,materials.metal));return g;}

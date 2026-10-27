@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+.impeccable/
+assets/reference/
+reference-input/
+evidence/reference-sheet-*.jpg
+Mate90_3D_Explorer_AI_Development_Prompt.md
+Mate90_Collector_Reference_Images.zip
+*.log
+.env
+.env.*
+!.env.example
