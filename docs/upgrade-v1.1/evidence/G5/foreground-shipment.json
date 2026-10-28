@@ -1,0 +1,126 @@
+{
+  "label": "foreground",
+  "startedAt": "2026-10-28T08:09:07.874Z",
+  "start": 730.4000000003725,
+  "metadata": {
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5090 Laptop GPU (0x00002C58) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "dpr": 1.0000000149011612,
+    "resolution": {
+      "width": 1920,
+      "height": 862
+    },
+    "gpuTimerAvailable": true,
+    "gcEntriesAvailable": false,
+    "memory": {
+      "usedJSHeapSize": 151300081,
+      "totalJSHeapSize": 201964193
+    },
+    "preserveDrawingBuffer": false
+  },
+  "visibility": [],
+  "phaseSummaries": [
+    {
+      "phase": "static",
+      "frames": 7176,
+      "elapsedMs": 30002.900000000373,
+      "fps": 239.17687956830542,
+      "p50FrameMs": 4.199999999998909,
+      "p95FrameMs": 4.299999999999272,
+      "p99FrameMs": 4.300000000001091,
+      "onePercentLowFps": 173.95506160905126,
+      "droppedFramesEstimate": 25,
+      "focusCoverage": 1,
+      "visibleCoverage": 1,
+      "p95CPUFrameMs": 0.599999999627471,
+      "p95GPUFrameMs": 2.482304,
+      "drawCalls": 97,
+      "triangles": 228060,
+      "memory": {
+        "usedJSHeapSize": 61048026,
+        "totalJSHeapSize": 121799854
+      }
+    },
+    {
+      "phase": "rotate",
+      "frames": 7200,
+      "elapsedMs": 30002,
+      "fps": 239.98400106659557,
+      "p50FrameMs": 4.19999999999709,
+      "p95FrameMs": 4.299999999995634,
+      "p99FrameMs": 4.30000000000291,
+      "onePercentLowFps": 230.5475504321402,
+      "droppedFramesEstimate": 0,
+      "focusCoverage": 1,
+      "visibleCoverage": 1,
+      "p95CPUFrameMs": 0.599999999627471,
+      "p95GPUFrameMs": 2.846112,
+      "drawCalls": 98,
+      "triangles": 228380,
+      "memory": {
+        "usedJSHeapSize": 69430214,
+        "totalJSHeapSize": 122164398
+      }
+    },
+    {
+      "phase": "explode",
+      "frames": 7196,
+      "elapsedMs": 30000,
+      "fps": 239.86666666666667,
+      "p50FrameMs": 4.19999999999709,
+      "p95FrameMs": 4.30000000000291,
+      "p99FrameMs": 4.30000000000291,
+      "onePercentLowFps": 224.7191011235996,
+      "droppedFramesEstimate": 0,
+      "focusCoverage": 1,
+      "visibleCoverage": 1,
+      "p95CPUFrameMs": 0.7000000011175871,
+      "p95GPUFrameMs": 2.040736,
+      "drawCalls": 97,
+      "triangles": 228060,
+      "memory": {
+        "usedJSHeapSize": 66377028,
+        "totalJSHeapSize": 121656320
+      }
+    }
+  ],
+  "finishedAt": "2026-10-28T08:10:37.885Z",
+  "finalMemory": {
+    "geometries": 97,
+    "textures": 20
+  },
+  "longTasks": [],
+  "gc": [],
+  "metricsDefinitions": {
+    "fps": "rendered frames divided by wall time",
+    "onePercentLowFps": "1000 / mean slowest 1% rAF intervals",
+    "droppedFrames": "estimated versus median rAF period; not OS compositor counter",
+    "cpu": "instrumented JS phases including render submission; not GPU completion",
+    "gpu": "disjoint timer samples if supported; null is unavailable",
+    "gc": "only PerformanceObserver gc entries; unavailable in typical Chromium"
+  },
+  "acceptance": [
+    {
+      "phase": "static",
+      "validForeground": true,
+      "desktopTarget": true
+    },
+    {
+      "phase": "rotate",
+      "validForeground": true,
+      "desktopTarget": true
+    },
+    {
+      "phase": "explode",
+      "validForeground": true,
+      "desktopTarget": true
+    }
+  ],
+  "traceArtifact": "foreground-shipment-trace.json.gz",
+  "traceCapEvents": 60000,
+  "runtimeSourceTreeSha256": "5c333b361b01c61756e66e448bdc6a19e991b11b1a75c382f02ceffa6bf46b75"
+}

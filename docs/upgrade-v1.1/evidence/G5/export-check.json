@@ -1,0 +1,17 @@
+{
+  "size": [
+    1280,
+    502
+  ],
+  "alphaExtrema": [
+    0,
+    255
+  ],
+  "nonTransparentPixels": 58830,
+  "topLeftAlpha": 0,
+  "configuration": {
+    "device": "huawei-mate90-collector",
+    "parts": 31,
+    "t": 0
+  }
+}

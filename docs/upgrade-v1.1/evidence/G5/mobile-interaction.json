@@ -1,0 +1,41 @@
+{
+  "kind": "Desktop simulated viewport and native mouse; physical touch NOT_TESTED",
+  "cameraBefore": {
+    "position": [
+      -26.42715031088064,
+      8.77105908082897,
+      -26.427150310880634
+    ],
+    "target": [
+      0,
+      1.8999999999999997,
+      0
+    ]
+  },
+  "afterNativeDrag": {
+    "position": [
+      -0.8097899163646559,
+      19.66073711457035,
+      -33.58422929647895
+    ],
+    "target": [
+      0,
+      1.8999999999999997,
+      0
+    ]
+  },
+  "rotationChanged": true,
+  "responsiveCompact": {
+    "expectedDistance": 56,
+    "target": [
+      0,
+      -0.8,
+      0
+    ]
+  },
+  "layout": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "detailsDrawerOpened": true
+}

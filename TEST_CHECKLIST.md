@@ -1,3 +1,9 @@
+# v1.1 当前验收入口
+
+当前分支验证见 [逐项验收](docs/upgrade-v1.1/ACCEPTANCE.md)、[性能](docs/upgrade-v1.1/PERFORMANCE.md) 和 [G5](docs/upgrade-v1.1/G5-report.md)。本机桌面、模拟视口、真实手机分开记录；真实手机NOT_TESTED，候选没有合并/部署。
+
+以下保留v1.0历史验收，不作为本轮结果的替代。
+
 # 逐项验收记录
 
 验收日期：2026-10-27。PASS 仅覆盖下列具体证据；不把构建、数值测试或浏览器模拟交互等同于物理手机验收。

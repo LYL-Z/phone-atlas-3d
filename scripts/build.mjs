@@ -9,6 +9,7 @@ for (const p of [
   "README.md",
   "SOURCE_NOTES.md",
   "TEST_CHECKLIST.md",
+  "docs",
 ])
   await cp(p, `dist/${p}`, { recursive: true });
 await mkdir("dist/tests", { recursive: true });

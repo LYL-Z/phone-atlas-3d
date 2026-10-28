@@ -1234,7 +1234,7 @@ body[data-drawer] .panel {
 
 body[data-immersive="true"] .tree-panel,body[data-immersive="true"] .info-panel{display:none}
 body[data-immersive="true"] .scene-title{left:32px}
-body[data-immersive="true"] .scene-modes{right:32px;left:auto}
+body[data-immersive="true"] .scene-modes{right:32px;left:auto;transform:none}
 body[data-immersive="true"][data-drawer="info"] .info-panel{display:flex;z-index:22}
 body[data-immersive="true"][data-drawer="tree"] .tree-panel{display:flex;z-index:22}
 body[data-immersive="true"] .close-panel{display:block}
@@ -1242,3 +1242,5 @@ body[data-immersive="true"] .mobile-tools{display:flex}
 body[data-fallback="true"] #info-panel{display:flex!important;z-index:15}
 @media(min-width:761px){body[data-immersive="true"] .mobile-tools{position:absolute;right:32px;bottom:88px;gap:8px}}
 @media(max-width:760px){body[data-immersive="true"] .scene-title{left:18px}body[data-immersive="true"] .scene-modes{right:16px}#immersive{font-size:10px;padding:7px 4px}.topbar #sources{font-size:10px;padding:7px 4px}.topbar .brand{flex-shrink:0}.topbar nav{margin-left:auto}.topbar .device-switch{min-width:65px}.topbar .device-switch select{max-width:100px}body[data-fallback="true"] #info-panel{top:220px;max-height:40vh}}
+
+@media(max-width:760px){.topbar #immersive,.topbar #sources,#render-settings summary{min-height:44px;display:inline-flex;align-items:center}}

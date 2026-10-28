@@ -71,3 +71,9 @@
 Three.js 使用 MIT 许可，见 `vendor/THREE-LICENSE.txt`。华为、HUAWEI、XMAGE 等商标归其权利人。本项目为非官方科普演示。
 
 界面展示标题另自托管 Manrope 可变字体，来自 Google Fonts 项目的 ofl/manrope；原始字体与 SIL Open Font License 1.1 一并位于 vendor/fonts。运行时无需字体外链。下载来源：https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf ，许可：https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt 。本轮原始文件下载成功；GitHub 网页工具读取受限，许可按本地下载原文核对。
+
+## v1.1 资料增量（2026-10-28 UTC）
+
+已读取官方产品页原始HTML，确认悬浮星环、钇晶宝石（脚注非天然宝石）、晶格与锦纤材料宣传；未取得IOR/BRDF/色卡或器件CAD。新增官方素材仅本地参考，URL/哈希见docs/reference/new-source-fetch.json，不包含在公开运行资产。16点照片校准见docs/reference/EXTERIOR_CALIBRATION.md；误差是照片估计，不是机械实测。
+
+新增6张芯片图仅作证据分类：人工功能分区、架构分析、显微截图、封装渲染与互连动画不能互相替代。参数与授权未闭合，独立芯片探索NOT_SHIPPED；详见docs/upgrade-v1.1/CHIP_EVIDENCE.md。当前所有内部件继续schematic。

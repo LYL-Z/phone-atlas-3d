@@ -20,9 +20,9 @@ export function frameFactory(p, m, d) {
 export function backFactory(p,m,d,color){
  const g=new THREE.Group(),w=d.dimensions.width/10,h=d.dimensions.length/10;
  put(g,role(profiledSolid(w-.06,h-.06,.9,(d.exteriorProfile||collectorExterior).backProfile,m.shell),'curved-back-shell'));
- const inset=profiledSolid(w-.30,h*.74,.73,[[-.045,.018],[-.041,0]],m.textile||m.shell);
+ const inset=profiledSolid(w-.30,h*.74,.73,[[-.0395,.018],[-.035,0]],m.textile||m.shell);
  put(g,role(inset,'textile-inlay'),0,h*.104,0);
- const label=textPlane(d.brand,2.05,.43,color.id==='black'?'#9da6a2':'#e4e9ce',170);label.rotation.y=Math.PI;put(g,role(label,'brand-mark'),0,-h*.365,-.049);
+ const label=textPlane(d.brand,2.05,.43,color.id==='black'?'#9da6a2':'#e4e9ce',170);label.rotation.y=Math.PI;put(g,role(label,'brand-mark'),0,-h*.365,-.0395);
  return g;
 }
 export function oledFactory(p, m, d) {
@@ -106,11 +106,11 @@ export function frontGlassFactory(p, m, d) {
       depthWrite: false,
     }),
   );
-  put(g, pane, 0, 0, 0.006);
+  put(g, pane, 0, 0, 0);
   for (let i = -1; i <= 1; i++)
-    put(g, disk(0.092, 0.016, m.black), i * 0.55, h / 2 - 0.5, 0.022);
+    put(g, disk(0.092, 0.016, m.black), i * 0.55, h / 2 - 0.5, 0.0135);
   const earpiece = plate(0.95, 0.035, 0.012, 0.014, m.black, 0.002);
-  put(g, earpiece, 0, h / 2 - 0.13, 0.02);
+  put(g, earpiece, 0, h / 2 - 0.13, 0.0155);
   return g;
 }
 export function buttonsFactory(p, m, d) {

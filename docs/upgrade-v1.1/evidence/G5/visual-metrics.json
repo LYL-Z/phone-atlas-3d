@@ -1,0 +1,101 @@
+{
+  "method": "Geometry-space landmark comparison using width-normalized photo estimates; not pixel segmentation, CAD metrology or a colorimetric assessment.",
+  "photoUncertainty": "landmarks +/- 4 px; ring edges +/- 6 px; overall photo projection +/- 3%; do not treat as mechanical metrology",
+  "comparisons": [
+    {
+      "feature": "island",
+      "photoNormalized": [
+        0,
+        0.585575
+      ],
+      "modelNormalized": [
+        0,
+        0.6035578144853876
+      ],
+      "errorInBodyWidths": 0.017982814485387633,
+      "errorMM": 1.4152475000000067,
+      "withinPhotoInterval": true
+    },
+    {
+      "feature": "main-camera",
+      "photoNormalized": [
+        -0.24817,
+        0.58557
+      ],
+      "modelNormalized": [
+        -0.25158831003811943,
+        0.6035578144853876
+      ],
+      "errorInBodyWidths": 0.018309732752758198,
+      "errorMM": 1.4409759676420701,
+      "withinPhotoInterval": true
+    },
+    {
+      "feature": "ultrawide",
+      "photoNormalized": [
+        -0.00367,
+        0.82274
+      ],
+      "modelNormalized": [
+        0,
+        0.8462515883100381
+      ],
+      "errorInBodyWidths": 0.02379629561214769,
+      "errorMM": 1.8727684646760232,
+      "withinPhotoInterval": true
+    },
+    {
+      "feature": "telephoto",
+      "photoNormalized": [
+        0.24328,
+        0.58557
+      ],
+      "modelNormalized": [
+        0.25158831003811943,
+        0.6035578144853876
+      ],
+      "errorInBodyWidths": 0.0198138710415263,
+      "errorMM": 1.5593516509681198,
+      "withinPhotoInterval": true
+    },
+    {
+      "feature": "flash",
+      "photoNormalized": [
+        0.00122,
+        0.34597
+      ],
+      "modelNormalized": [
+        0,
+        0.34053367217280817
+      ],
+      "errorInBodyWidths": 0.005571540203992096,
+      "errorMM": 0.4384802140541779,
+      "withinPhotoInterval": true
+    }
+  ],
+  "envelope": [
+    {
+      "axis": "width",
+      "modelMM": 79.32999849319458,
+      "officialMM": 78.7,
+      "relativeError": 0.008005063445928554
+    },
+    {
+      "axis": "length",
+      "modelMM": 164.65999603271484,
+      "officialMM": 164.5,
+      "relativeError": 0.0009726202596647037
+    },
+    {
+      "axis": "thickness",
+      "modelMM": 8.150000025480985,
+      "officialMM": 8.15,
+      "relativeError": 3.126501157491637e-9
+    }
+  ],
+  "withinOnePercentEnvelope": true,
+  "gemDiameterRatio": 0.76289707750953,
+  "referenceRingDiameterRatio": 0.7628361858190709,
+  "medallionDiameterRatio": 0.3290978398983481,
+  "rmseInBodyWidths": 0.018157770573773355
+}

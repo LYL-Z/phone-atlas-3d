@@ -447,7 +447,10 @@ engine.renderer.domElement.addEventListener("webglcontextrestored", () => {
   $("fatal").hidden = false;
   $("fatal").textContent = "图形上下文已恢复，请刷新页面重新建立资源。";
 });
+let lastCompactViewport=viewport.clientWidth<761;
 window.addEventListener("resize", () => {
+  const compact=viewport.clientWidth<761;
+  if(compact!==lastCompactViewport){lastCompactViewport=compact;camera.view(camera.current(),store.get().t>.1,true);}
   const desired = Math.min(devicePixelRatio, qualityPresets[engine.quality].dpr);
   if (slowWindows < 3 && engine.renderer.getPixelRatio() !== desired) {
     engine.renderer.setPixelRatio(desired);
@@ -479,7 +482,9 @@ window.phoneAtlasDiagnostics = () => ({
   performance: { ...perf },
   dpr: engine.renderer.getPixelRatio(),
   quality:engine.quality, studio:engine.studio.preset,
-  surfaceRoles:model.styleMaterials.map(x=>({part:x.id,role:x.mat.userData.surfaceRole,metalness:x.mat.metalness,roughness:x.mat.roughness})),
+  screenEmission:model.styleMaterials.filter(x=>x.mat.userData.surfaceRole==="oled").map(x=>x.mat.emissiveIntensity),
+  bodyEnvelopeMM:store.get().t===0?(()=>{const box=new THREE.Box3();for(const id of ["frame","back","front-glass","oled","buttons","ports","sim"])if(model.groups.has(id))box.union(new THREE.Box3().setFromObject(model.groups.get(id)));return box.getSize(new THREE.Vector3()).multiplyScalar(10).toArray();})():null,
+  surfaceRoles:model.styleMaterials.map(x=>({part:x.id,role:x.mat.userData.surfaceRole,metalness:x.mat.metalness,roughness:x.mat.roughness,opacity:x.mat.opacity,transparent:x.mat.transparent})),
 });
 
 if(new URLSearchParams(location.search).has('benchmark'))window.phoneAtlasBenchmark={start(label){document.querySelectorAll('dialog[open]').forEach(x=>x.close());actions.scrub(0);camera.view('iso',false,true);slowWindows=0;engine.renderer.setPixelRatio(Math.min(devicePixelRatio,qualityPresets[engine.quality].dpr));engine.resize();engine.renderer.domElement.tabIndex=0;engine.renderer.domElement.focus();profiler.start(label);},phase(name){benchmarkPhase=name;engine.controls.autoRotate=name==='rotate';engine.controls.autoRotateSpeed=2;profiler.phase(name);},finishPhase(){profiler.finishPhase();},stop(){benchmarkPhase=null;engine.controls.autoRotate=false;return profiler.stop();},capture(view,colorId){benchmarkPhase=null;engine.controls.autoRotate=false;if(colorId){color=device.colors.find(c=>c.id===colorId)||color;rebuild();}store.set({t:0,target:0,playing:false,selected:null,hover:null,xray:false,hidden:new Set()});camera.cancel();const views={back:[[0,1,-38],[0,1,0]],side:[[-30,1,-5],[0,1,0]],camera:[[-4,6.7,-13],[0,4.75,-.5]],front:[[0,1,38],[0,1,0]],surface:[[-4,-1,-15],[0,-1,-.4]]};const [position,look]=views[view]||views.back;engine.camera.position.fromArray(position);engine.controls.target.fromArray(look);engine.controls.update();},quality:actions.quality,studio:actions.studio,device:actions.device,diagnostics:()=>window.phoneAtlasDiagnostics()};

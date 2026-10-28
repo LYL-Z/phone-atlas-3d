@@ -1,8 +1,12 @@
 # Phone Atlas 3D
 
+当前分支为 **v1.1.0-dev.1 材质与外观精修待审候选**。已公开的Pages仍为v1.0；真实手机与实物一致性门禁未关闭，未合并或部署本候选。
+
+[本地审查画册](docs/upgrade-v1.1/gallery.html) · [逐项验收](docs/upgrade-v1.1/ACCEPTANCE.md) · [性能实测](docs/upgrade-v1.1/PERFORMANCE.md) · [材料与光照](docs/upgrade-v1.1/MATERIAL_SPEC.md)
+
 [在线浏览](https://lyl-z.github.io/phone-atlas-3d/) · [公开源码与审查](https://github.com/LYL-Z/phone-atlas-3d) · [自动检查与部署](https://github.com/LYL-Z/phone-atlas-3d/actions)
 
-![程序化外观预览，非实物测绘](evidence/desktop-1920-back.jpg)
+![v1.1程序化外观预览，非实物测绘](docs/upgrade-v1.1/evidence/G5/product-desktop.png)
 
 本地交互手机拆解网站，首期 HUAWEI Mate 90 Pro Max 典藏版。运行时代码仅 HTML、CSS、原生 JavaScript ES Modules 与 Three.js 0.180.0 官方 addons，所有三维几何由代码构造。无需外部模型、API Key、CDN、图片或网络请求。第三方参考图不作为运行资产。
 
@@ -20,6 +24,9 @@ npm start
 本次开发服务仅监听 127.0.0.1。可运行 `Start-Phone-Atlas.cmd`。停止服务用所在终端的 Ctrl+C。源码已按用户要求准备为公开 GitHub 仓库；不分发原始参考图。
 
 ## 使用
+
+- 默认沉浸外观；“展开面板”恢复工作台，点选部件唤出资料。
+- “光影与画质”切换棚拍/自然柔光/侧逆光/低调科技/v1.0基准、低中高画质及屏幕亮灭。材料参数为照片推断。开发校准入口 `/?materials=1`。
 
 - 拖动模型旋转，滚轮缩放；触控支持由官方 OrbitControls 提供的单指旋转、双指缩放/平移。真机触控尚未验收。
 - 点击部件或部件树同步资料和高亮；内部件自动展开到可查看进度。双击或“对焦部件”移动相机。Escape 退出选择与小屏抽屉。
@@ -64,6 +71,12 @@ npm test
 
 本项目非华为官方，不暗示官方认证。外观是基于图片与官方总尺寸的程序化近似，不能称为实物测绘级复刻；微小倒角、宝石光学、背盖纤维、精确孔径和镜头凸起仍有偏差。内部 PCB、封装、RAM 与存储布局、电池尺寸、VC、线圈匝数、FPC、螺丝和支撑件均为工程示意。官方确认功能与参数，不证明示意几何和装配位置。
 
-Z10 只保留资料入口，未实现可选外接配件装卸。不存在芯片裸片透视或已核实晶粒重建。无外部模型；未获得/发布第三方照片的再分发授权。完整源码压缩包排除用户参考图。
+Z10 只保留资料入口，未实现可选外接配件装卸。不存在芯片裸片透视或已核实晶粒重建。无外部模型；未获得/发布第三方照片的再分发授权。完整源码压缩包排除用户参考图。v1.1芯片实验入口为NOT_SHIPPED，按任务书独立延期至v1.2；详情见CHIP_EVIDENCE。
 
 桌面 Chrome/Edge 为优先环境，要求 WebGL 2。WebGL 创建失败和模块加载失败会给出提示，图形上下文丢失提示刷新；该降级路径有代码，是否实际触发以验收表为准。主流桌面、手机性能不能由本机高配 GPU 的帧率推定。
+
+## v1.1 复核入口
+
+`npm test`、`npm run test:geometry`、`npm run build`。`node scripts/visual-metrics.mjs`重算照片估计比较，`node scripts/evidence-gallery.mjs`重建审查画册。打开 `/tests/performance-benchmark/index.html` 做90秒无截图前台基准，`/tests/fidelity.html` 做资源与画质检查。基准记录GPU、浏览器、实际Canvas/DPR、帧时间和焦点覆盖；页面focus不能独自证明窗口在前台。
+
+本机RTX5090 Laptop在1920×1080中画质达到约239FPS/p95约4.3ms，真实手机性能仍NOT_TESTED。完整结果和限制以[ACCEPTANCE](docs/upgrade-v1.1/ACCEPTANCE.md)为准。此数据不代表主流手机或摄影级实物认证。内部结构始终为工程示意。

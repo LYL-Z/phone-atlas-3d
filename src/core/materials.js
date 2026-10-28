@@ -11,7 +11,7 @@ export function createMaterials(color,quality='medium'){
  gem:physical({color:color.id==='green'?'#658d31':color.shell,metalness:0,roughness:.07,ior:1.83,clearcoat:1,clearcoatRoughness:.055,iridescence:q.film?.14:0,iridescenceThicknessRange:[110,190],envMapIntensity:1.5}),
  lens:physical({color:'#060d1b',metalness:0,roughness:.035,ior:1.5,clearcoat:1,clearcoatRoughness:.035,iridescence:q.film?.2:0,iridescenceThicknessRange:[95,155],envMapIntensity:1.4,side:THREE.DoubleSide}),
  glass:physical({color:'#122022',metalness:0,roughness:.055,ior:1.5,clearcoat:1}),
- cameraFace:physical({color:'#050809',metalness:0,roughness:.19,clearcoat:.95,clearcoatRoughness:.08}),
+ cameraFace:physical({color:'#050809',metalness:0,roughness:.19,clearcoat:.7,clearcoatRoughness:.08,specularIntensity:.65,envMapIntensity:.4}),
  medallion:standard({color:color.metal,metalness:.94,roughness:.23}),
  black:standard({color:'#101519',metalness:.03,roughness:.48}),
  board:standard({color:'#123d31',metalness:0,roughness:.63,normalMap:grain.normal,normalScale:new THREE.Vector2(.035,.035)}),

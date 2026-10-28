@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import {disk,ring,put,plate,textPlane} from "./geometry.js";
+import {disk,ring,put,plate,textPlane,outline} from "./geometry.js";
 import {turned,opticalDome,role} from "./profileGeometry.js";
 import {collectorExterior} from "../devices/exteriorProfiles.js";
 export function islandFactory(p,m,d){
@@ -9,7 +9,8 @@ export function islandFactory(p,m,d){
  put(g,role(turned([[r-.18,-.15],[r-.16,-.20],[r-.17,-.275],[r-.22,-.28],[r-.23,-.18],[r-.18,-.15]],m.black),'optical-gasket'));
  // Openings follow visible lenses; no assumed sensor package or optical prescription.
  const shape=new THREE.Shape();shape.absarc(0,0,r-.19,0,Math.PI*2,false);
- for(const [x,y,radius]of [[1.98,0,.59],[-1.98,0,.57],[0,1.91,.43],[-1.02,1.74,.18],[0,-2.07,.35]]){const h=new THREE.Path();h.absarc(x,y,radius,0,Math.PI*2,true);shape.holes.push(h);}
+ for(const [x,y,radius]of [[1.98,0,.59],[-1.98,0,.57],[0,1.91,.43],[-1.02,1.74,.18]]){const h=new THREE.Path();h.absarc(x,y,radius,0,Math.PI*2,true);shape.holes.push(h);}
+ const flashOpening=outline(.61,.21,.1);shape.holes.push(new THREE.Path(flashOpening.getPoints(12).map(v=>new THREE.Vector2(v.x,v.y-2.07)).reverse()));
  const faceGeo=new THREE.ExtrudeGeometry(shape,{depth:.025,bevelEnabled:false,curveSegments:48});faceGeo.translate(0,0,-.275);
  put(g,role(new THREE.Mesh(faceGeo,m.cameraFace||m.black),'optical-face'));
  const mr=(d.exteriorProfile||collectorExterior).medallionRadius;
