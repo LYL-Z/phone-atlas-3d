@@ -1,3 +1,5 @@
+import {showMaterialPreview} from "./core/materialPreview.js";
+import {qualityPresets} from "./core/quality.js";
 import {createProfiler} from "./core/profiler.js";
 import * as THREE from "three";
 import { genericDevice } from "./devices/genericTestDevice.js";
@@ -64,7 +66,7 @@ function style(s) {
   for (const original of model.styleMaterials) {
     const { mat, id, category } = original;
     const xray = s.xray && category === "exterior";
-    const muted = s.selected && s.selected !== id;
+    const muted = false; // Selection preserves the other materials; X-ray is explicit.
     mat.opacity = xray
       ? Math.min(0.12, original.opacity)
       : muted
@@ -79,7 +81,7 @@ function style(s) {
     if (mat.emissive) {
       if (s.selected === id) {
         mat.emissive.set("#8aab4d");
-        mat.emissiveIntensity = 0.28;
+        mat.emissiveIntensity = 0.045;
       } else if (s.hover === id) {
         mat.emissive.set("#a1bd7b");
         mat.emissiveIntensity = 0.08;
@@ -166,7 +168,7 @@ function rebuild() {
   viewport.dataset.modelRevision = String(modelRevision);
   unsubscribe?.();
   model?.dispose();
-  model = createModel(device, color);
+  model = createModel(device, color, engine.quality);
   engine.scene.add(model.root);
   animator = createAnimator(store, model, device, reduced);
   tree = createTree(device, store, select, toggle);
@@ -209,6 +211,7 @@ function rebuild() {
   $("sku").replaceChildren(...device.skus.map((s) => new Option(s, s)));
   $("sku").value = sku;
   $("sku-caption").textContent = `${device.ramLabel || "16 GB"} + ${sku}`;
+  if($("screen-power"))actions?.screen?.($("screen-power").checked);
   refreshRegistry();
 }
 const actions = {
@@ -299,6 +302,9 @@ const actions = {
     rebuild();
     camera.view("iso");
   },
+  quality(value){engine.setQuality(value);slowWindows=0;rebuild();},
+  studio(value){engine.studio.apply(value,qualityPresets[engine.quality].environment);},
+  screen(on){model.root.traverse(o=>{if(o.isMesh&&o.material.userData?.surfaceRole==='oled'){o.material.emissiveIntensity=on?.8:0;}});},
   screenshot() {
     engine.renderer.render(engine.scene, engine.camera);
     engine.renderer.domElement.toBlob((blob) => {
@@ -350,6 +356,7 @@ controls = setupControls(store, actions);
 controls.sync(store.get());
 camera.view("iso", false, true);
 createPicking(engine, () => model, store, select, focus);
+if(new URLSearchParams(location.search).has("materials"))showMaterialPreview(engine,model);
 engine.controls.addEventListener("start", () => {
   camera.cancel();
   pendingFocus = false;
@@ -439,7 +446,7 @@ engine.renderer.domElement.addEventListener("webglcontextrestored", () => {
   $("fatal").textContent = "图形上下文已恢复，请刷新页面重新建立资源。";
 });
 window.addEventListener("resize", () => {
-  const desired = Math.min(devicePixelRatio, innerWidth < 761 ? 1.2 : 1.35);
+  const desired = Math.min(devicePixelRatio, qualityPresets[engine.quality].dpr);
   if (slowWindows < 3 && engine.renderer.getPixelRatio() !== desired) {
     engine.renderer.setPixelRatio(desired);
     engine.resize();
@@ -469,6 +476,8 @@ window.phoneAtlasDiagnostics = () => ({
   memory: { ...engine.renderer.info.memory },
   performance: { ...perf },
   dpr: engine.renderer.getPixelRatio(),
+  quality:engine.quality, studio:engine.studio.preset,
+  surfaceRoles:model.styleMaterials.map(x=>({part:x.id,role:x.mat.userData.surfaceRole,metalness:x.mat.metalness,roughness:x.mat.roughness})),
 });
 
-if(new URLSearchParams(location.search).has('benchmark'))window.phoneAtlasBenchmark={start(label){document.querySelectorAll('dialog[open]').forEach(x=>x.close());actions.scrub(0);camera.view('iso',false,true);slowWindows=0;engine.renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<761?1.2:1.35));engine.resize();engine.renderer.domElement.tabIndex=0;engine.renderer.domElement.focus();profiler.start(label);},phase(name){benchmarkPhase=name;engine.controls.autoRotate=name==='rotate';engine.controls.autoRotateSpeed=2;profiler.phase(name);},finishPhase(){profiler.finishPhase();},stop(){benchmarkPhase=null;engine.controls.autoRotate=false;return profiler.stop();},capture(view,colorId){benchmarkPhase=null;engine.controls.autoRotate=false;if(colorId){color=device.colors.find(c=>c.id===colorId)||color;rebuild();}store.set({t:0,target:0,playing:false,selected:null,hover:null,xray:false,hidden:new Set()});camera.cancel();const views={back:[[0,1,-38],[0,1,0]],side:[[-30,1,-5],[0,1,0]],camera:[[-4,6.7,-13],[0,4.75,-.5]],front:[[0,1,38],[0,1,0]],surface:[[-4,-1,-15],[0,-1,-.4]]};const [position,look]=views[view]||views.back;engine.camera.position.fromArray(position);engine.controls.target.fromArray(look);engine.controls.update();},device:actions.device,diagnostics:()=>window.phoneAtlasDiagnostics()};
+if(new URLSearchParams(location.search).has('benchmark'))window.phoneAtlasBenchmark={start(label){document.querySelectorAll('dialog[open]').forEach(x=>x.close());actions.scrub(0);camera.view('iso',false,true);slowWindows=0;engine.renderer.setPixelRatio(Math.min(devicePixelRatio,qualityPresets[engine.quality].dpr));engine.resize();engine.renderer.domElement.tabIndex=0;engine.renderer.domElement.focus();profiler.start(label);},phase(name){benchmarkPhase=name;engine.controls.autoRotate=name==='rotate';engine.controls.autoRotateSpeed=2;profiler.phase(name);},finishPhase(){profiler.finishPhase();},stop(){benchmarkPhase=null;engine.controls.autoRotate=false;return profiler.stop();},capture(view,colorId){benchmarkPhase=null;engine.controls.autoRotate=false;if(colorId){color=device.colors.find(c=>c.id===colorId)||color;rebuild();}store.set({t:0,target:0,playing:false,selected:null,hover:null,xray:false,hidden:new Set()});camera.cancel();const views={back:[[0,1,-38],[0,1,0]],side:[[-30,1,-5],[0,1,0]],camera:[[-4,6.7,-13],[0,4.75,-.5]],front:[[0,1,38],[0,1,0]],surface:[[-4,-1,-15],[0,-1,-.4]]};const [position,look]=views[view]||views.back;engine.camera.position.fromArray(position);engine.controls.target.fromArray(look);engine.controls.update();},quality:actions.quality,studio:actions.studio,device:actions.device,diagnostics:()=>window.phoneAtlasDiagnostics()};

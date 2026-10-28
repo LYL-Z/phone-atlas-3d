@@ -70,7 +70,7 @@ export function oledFactory(p, m, d) {
     h - 0.14,
     0.009,
     0.72,
-    new THREE.MeshBasicMaterial({ map: t }),
+    Object.assign(new THREE.MeshPhysicalMaterial({color:"#030505",emissive:"#ffffff",emissiveMap:t,emissiveIntensity:.8,roughness:.12,clearcoat:1,metalness:0}),{userData:{surfaceRole:"oled"}}),
     0.002,
   );
   put(g, screen, 0, 0, 0.036);

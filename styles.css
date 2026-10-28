@@ -1222,3 +1222,12 @@ body[data-drawer] .panel {
     padding: 6px;
   }
 }
+
+/* v1.1: small render controls retain the incumbent workbench. */
+#render-settings{position:relative;font-size:12px;color:var(--text)}
+#render-settings summary{cursor:pointer;padding:9px 8px;border-radius:6px;white-space:nowrap}
+#render-settings summary:hover{background:#29362d}
+.render-options{position:absolute;right:0;top:40px;width:230px;padding:18px;background:#1b231f;border:1px solid #475348;border-radius:10px;z-index:40;display:grid;gap:14px;box-shadow:0 12px 30px #0006}
+.render-options label{display:flex;align-items:center;justify-content:space-between;gap:12px}.render-options select{max-width:145px;padding:7px;background:#29312d;color:#eef1e9;border:1px solid #53614f;border-radius:5px}.render-options small{color:#b0bcb2;font-size:10px;line-height:1.7}.screen-toggle{justify-content:flex-start!important}
+.material-debug{position:fixed;bottom:160px;left:50%;transform:translateX(-50%);max-width:700px;background:#1b231f;padding:18px;z-index:50;color:#dde5d8;font-size:13px;line-height:1.7}
+@media(max-width:760px){#render-settings{font-size:10px}#render-settings summary{padding:8px 3px}.topbar nav{gap:1px}.render-options{right:-100px;max-width:70vw}.topbar #help{display:none}}

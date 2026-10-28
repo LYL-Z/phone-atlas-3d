@@ -13,8 +13,8 @@ export function islandFactory(p,m,d){
  const faceGeo=new THREE.ExtrudeGeometry(shape,{depth:.025,bevelEnabled:false,curveSegments:48});faceGeo.translate(0,0,-.275);
  put(g,role(new THREE.Mesh(faceGeo,m.cameraFace||m.black),'optical-face'));
  const mr=(d.exteriorProfile||collectorExterior).medallionRadius;
- put(g,role(turned([[0,-.28],[mr-.08,-.28],[mr,-.24],[mr+.015,-.19],[mr-.035,-.16],[0,-.16]],m.medallion||m.metal),'xmage-medallion'));
- const logo=textPlane('XMAGE',1.5,.33,'#e4e8d9',165);logo.rotation.y=Math.PI;put(g,role(logo,'xmage-print'),0,0,-.284);
+ put(g,role(turned([[0,-.30],[mr*.25,-.298],[mr*.55,-.288],[mr*.82,-.266],[mr,-.24],[mr+.015,-.19],[mr-.035,-.16],[0,-.16]],m.medallion||m.metal),'xmage-medallion'));
+ const logo=textPlane('XMAGE',1.5,.33,'#e4e8d9',165);logo.rotation.y=Math.PI;put(g,role(logo,'xmage-print'),0,0,-.304);
  // Fine machining lines on the visible collar, not a fabricated bayonet mechanism.
  for(let i=0;i<3;i++)put(g,role(ring(r+.015,r+.003,.012,m.metal),'collar-machining'),0,0,.04-i*.035);
  for(let i=0;i<4;i++)put(g,role(plate(.18,.055,.024,.018,m.silver,.004),'accessory-contact'),-.4+i*.27,-r+.03,-.08);

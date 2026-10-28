@@ -30,6 +30,12 @@
         ><select id="device"></select>
       </div>
       <nav>
+        <details id="render-settings"><summary>光影与画质</summary><div class="render-options">
+          <label>灯光<select id="studio" aria-label="灯光预设"><option value="studio">棚拍</option><option value="soft">自然柔光</option><option value="rim">侧逆光</option><option value="lowkey">低调科技</option><option value="room">v1.0 基准环境</option></select></label>
+          <label>画质<select id="quality" aria-label="渲染画质"><option value="low">低</option><option value="medium" selected>中</option><option value="high">高</option></select></label>
+          <label class="screen-toggle"><input id="screen-power" type="checkbox" checked>点亮屏幕</label>
+          <small>外观按照片近似 · 材料参数非实测</small>
+        </div></details>
         <button id="help" class="quiet">操作引导</button
         ><button id="sources" class="quiet">
           资料与来源 <span aria-hidden="true">↗</span>
