@@ -1,3 +1,4 @@
+import {createProfiler} from "./core/profiler.js";
 import * as THREE from "three";
 import { genericDevice } from "./devices/genericTestDevice.js";
 import { createScene } from "./core/scene.js";
@@ -373,18 +374,23 @@ const debug = gl.getExtension("WEBGL_debug_renderer_info");
 perf.renderer = debug
   ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL)
   : gl.getParameter(gl.RENDERER);
+const profiler=createProfiler(engine.renderer);
+let benchmarkPhase=null;
 function tick(time) {
+  profiler.begin(time);
+  if(benchmarkPhase==="explode"){const t=(1-Math.cos(time/2500))/2;store.set({t,target:t,playing:false,selected:null});}
   const dt = Math.min(1, (time - lastTime) / 1000);
   lastTime = time;
-  animator.update(dt);
-  camera.update(dt, reduced);
+  profiler.span("animator + subscribers",()=>animator.update(dt));
+  profiler.span("camera",()=>camera.update(dt,reduced));
   if (pendingFocus && !store.get().playing) {
     pendingFocus = false;
     focus();
   }
-  engine.controls.update();
-  engine.renderer.render(engine.scene, engine.camera);
-  labels.update();
+  profiler.span("OrbitControls",()=>engine.controls.update());
+  profiler.span("render submission",()=>profiler.render(()=>engine.renderer.render(engine.scene, engine.camera)));
+  profiler.span("labels + raycast",()=>labels.update());
+  profiler.end();
   viewport.dataset.renderedRevision = String(modelRevision);
   viewport.dataset.renderedProgress = store.get().t.toFixed(3);
   frames++;
@@ -399,7 +405,7 @@ function tick(time) {
     );
     if (fps < 26) slowWindows++;
     else slowWindows = 0;
-    if (slowWindows === 3) {
+    if (slowWindows === 3 && !profiler.active) {
       engine.renderer.setPixelRatio(1);
       engine.resize();
       toast("已降低渲染分辨率以改善流畅度");
@@ -410,6 +416,7 @@ function tick(time) {
 }
 engine.renderer.setAnimationLoop(tick);
 document.addEventListener("visibilitychange", () => {
+  profiler.visibility();
   if (document.hidden) {
     engine.renderer.setAnimationLoop(null);
     store.set({ playing: false, target: store.get().t });
@@ -463,3 +470,5 @@ window.phoneAtlasDiagnostics = () => ({
   performance: { ...perf },
   dpr: engine.renderer.getPixelRatio(),
 });
+
+if(new URLSearchParams(location.search).has('benchmark'))window.phoneAtlasBenchmark={start(label){document.querySelectorAll('dialog[open]').forEach(x=>x.close());actions.scrub(0);camera.view('iso',false,true);slowWindows=0;engine.renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<761?1.2:1.35));engine.resize();engine.renderer.domElement.tabIndex=0;engine.renderer.domElement.focus();profiler.start(label);},phase(name){benchmarkPhase=name;engine.controls.autoRotate=name==='rotate';engine.controls.autoRotateSpeed=2;profiler.phase(name);},finishPhase(){profiler.finishPhase();},stop(){benchmarkPhase=null;engine.controls.autoRotate=false;return profiler.stop();},capture(view,colorId){benchmarkPhase=null;engine.controls.autoRotate=false;if(colorId){color=device.colors.find(c=>c.id===colorId)||color;rebuild();}store.set({t:0,target:0,playing:false,selected:null,hover:null,xray:false,hidden:new Set()});camera.cancel();const views={back:[[0,1,-38],[0,1,0]],side:[[-30,1,-5],[0,1,0]],camera:[[-4,6.7,-13],[0,4.75,-.5]],front:[[0,1,38],[0,1,0]],surface:[[-4,-1,-15],[0,-1,-.4]]};const [position,look]=views[view]||views.back;engine.camera.position.fromArray(position);engine.controls.target.fromArray(look);engine.controls.update();},device:actions.device,diagnostics:()=>window.phoneAtlasDiagnostics()};

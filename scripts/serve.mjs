@@ -21,7 +21,7 @@ http
       let rel =
         decodeURIComponent(url.pathname).replace(/^\//, "") || "index.html";
       if (
-        !/^(index\.html|styles\.css|src\/|vendor\/|favicon\.svg|README\.md|SOURCE_NOTES\.md|TEST_CHECKLIST\.md|tests\/browser\.html)/.test(
+        !/^(index\.html|styles\.css|src\/|vendor\/|favicon\.svg|README\.md|SOURCE_NOTES\.md|TEST_CHECKLIST\.md|tests\/)/.test(
           rel,
         )
       )
