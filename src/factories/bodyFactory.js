@@ -1,81 +1,29 @@
 import * as THREE from "three";
+import {collectorExterior} from "../devices/exteriorProfiles.js";
+import {profiledSolid,role} from "./profileGeometry.js";
 import { outline, plate, put, disk, textPlane } from "./geometry.js";
-export function frameFactory(p, materials, device) {
-  const g = new THREE.Group(),
-    w = device.dimensions.width / 10,
-    h = device.dimensions.length / 10;
-  const s = outline(w - 0.08, h - 0.08, 0.87);
-  const hole = outline(w - 0.32, h - 0.32, 0.74);
-  s.holes.push(new THREE.Path(hole.getPoints().reverse()));
-  const geo = new THREE.ExtrudeGeometry(s, {
-    depth: 0.675,
-    bevelEnabled: true,
-    bevelSize: 0.04,
-    bevelThickness: 0.04,
-    bevelSegments: 4,
-    curveSegments: 20,
-  });
-  geo.translate(0, 0, -0.3375);
-  put(g, new THREE.Mesh(geo, materials.metal));
+export function frameFactory(p, m, d) {
+  const g=new THREE.Group(),w=d.dimensions.width/10,h=d.dimensions.length/10;
+  const profile=d.exteriorProfile||collectorExterior;
+  put(g,role(profiledSolid(w,h,profile.cornerRadius,profile.bezelProfile,m.metal,{caps:false,openEnds:true}),'machined-frame'));
+  // Separate end panels contain real apertures. Recess interiors belong to ports/SIM.
+  for(const side of [-1,1]){
+    const shape=outline(w-2*profile.cornerRadius,.48,.025);
+    const holes=side<0?[{x:0,w:.96,h:.25},{x:-2,w:1.68,h:.28},...Array.from({length:6},(_,i)=>({x:1.3+i*.23,w:.105,h:.105}))]:[{x:-2.6,w:.31,h:.09},{x:2.6,w:.31,h:.09}];
+    for(const q of holes){const hole=outline(q.w,q.h,Math.min(q.h/2,.11));const path=new THREE.Path(hole.getPoints(10).map(v=>new THREE.Vector2(v.x+q.x,v.y)).reverse());shape.holes.push(path);}
+    const geo=new THREE.ExtrudeGeometry(shape,{depth:.10,bevelEnabled:false,curveSegments:12});geo.rotateX(side*Math.PI/2);
+    put(g,role(new THREE.Mesh(geo,m.metal),'aperture-rim'),0,side*h/2,0);
+  }
+  for(const z of [-.365,.365])put(g,role(profiledSolid(w-.13,h-.13,.86,[[z-.008,0],[z+.008,0]],m.black,{caps:false}),'assembly-seam'));
   return g;
 }
-export function backFactory(p, m, d, color) {
-  const g = new THREE.Group(),
-    w = d.dimensions.width / 10,
-    h = d.dimensions.length / 10;
-  put(g, plate(w - 0.12, h - 0.12, 0.07, 0.83, m.shell, 0.025));
-  const c = document.createElement("canvas");
-  c.width = 1024;
-  c.height = 2048;
-  const ctx = c.getContext("2d");
-  ctx.fillStyle = color.inset;
-  ctx.fillRect(0, 0, 1024, 2048);
-  // Four textile quadrants alternate their fiber direction, matching the supplied rear reference.
-  ctx.lineWidth = 1.35;
-  ctx.strokeStyle = "rgba(228,243,201,.35)";
-  for (let qy = 0; qy < 2; qy++)
-    for (let qx = 0; qx < 2; qx++) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(qx * 512, qy * 1024, 512, 1024);
-      ctx.clip();
-      const vertical = (qx + qy) % 2 === 0;
-      const extent = vertical ? 512 : 1024;
-      for (let i = 0; i <= extent; i += 5) {
-        ctx.beginPath();
-        if (vertical) {
-          ctx.moveTo(qx * 512 + i, qy * 1024);
-          ctx.lineTo(qx * 512 + i, (qy + 1) * 1024);
-        } else {
-          ctx.moveTo(qx * 512, qy * 1024 + i);
-          ctx.lineTo((qx + 1) * 512, qy * 1024 + i);
-        }
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-  const glow = ctx.createRadialGradient(340, 480, 0, 340, 480, 1100);
-  glow.addColorStop(0, "rgba(205,231,134,.25)");
-  glow.addColorStop(1, "rgba(0,0,0,.15)");
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, 1024, 2048);
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  t.anisotropy = 4;
-  const mat = new THREE.MeshPhysicalMaterial({
-    map: t,
-    bumpMap: t,
-    bumpScale: 0.012,
-    metalness: 0.3,
-    roughness: 0.33,
-    clearcoat: 0.7,
-  });
-  const inset = plate(w - 0.36, h * 0.735, 0.012, 0.78, mat, 0.004);
-  put(g, inset, 0, h * 0.09, -0.041);
-  const label = textPlane(d.brand, 2.2, 0.55, "#52643f", 185);
-  label.rotation.y = Math.PI;
-  put(g, label, 0, -h * 0.365, -0.045);
-  return g;
+export function backFactory(p,m,d,color){
+ const g=new THREE.Group(),w=d.dimensions.width/10,h=d.dimensions.length/10;
+ put(g,role(profiledSolid(w-.06,h-.06,.9,(d.exteriorProfile||collectorExterior).backProfile,m.shell),'curved-back-shell'));
+ const inset=profiledSolid(w-.30,h*.74,.73,[[-.045,.018],[-.041,0]],m.textile||m.shell);
+ put(g,role(inset,'textile-inlay'),0,h*.104,0);
+ const label=textPlane(d.brand,2.05,.43,color.id==='black'?'#9da6a2':'#e4e9ce',170);label.rotation.y=Math.PI;put(g,role(label,'brand-mark'),0,-h*.365,-.049);
+ return g;
 }
 export function oledFactory(p, m, d) {
   const g = new THREE.Group(),
@@ -142,20 +90,21 @@ export function frontGlassFactory(p, m, d) {
   });
   geo.translate(0, 0, -0.015);
   put(g, new THREE.Mesh(geo, m.black));
-  const pane = plate(
-    w - 0.2,
-    h - 0.2,
-    0.012,
+  const pane = profiledSolid(
+    w - 0.19,
+    h - 0.19,
     0.76,
+    [[-.004,.03],[.008,.015],[.021,.035]],
     new THREE.MeshPhysicalMaterial({
       color: "#d9ede5",
       transparent: true,
       opacity: 0.045,
       roughness: 0.08,
-      metalness: 0.1,
+      metalness: 0,
+      ior: 1.5,
+      clearcoat: 1,
       depthWrite: false,
     }),
-    0.002,
   );
   put(g, pane, 0, 0, 0.006);
   for (let i = -1; i <= 1; i++)
@@ -168,10 +117,11 @@ export function buttonsFactory(p, m, d) {
   const g = new THREE.Group(),
     x = d.dimensions.width / 20 + 0.005;
   for (const [y, h] of [
-    [3.9, 1.65],
-    [1.55, 1.1],
+    [4.73, 1.78],
+    [2.16, 1.27],
   ]) {
-    const b = plate(0.1, h, 0.4, 0.045, m.metal, 0.02);
+    const gasket = plate(0.102,h+.045,.42,.045,m.black,.015); put(g,gasket,x-.018,y,0);
+    const b = plate(0.08, h, 0.36, 0.038, m.metal, 0.018);
     put(g, b, x, y, 0);
   }
   for (const y of [5.7, -5.2])
@@ -190,19 +140,19 @@ export function portsFactory(p, m, d) {
     bottom = -d.dimensions.length / 20;
   const usb = plate(0.92, 0.27, 0.025, 0.12, m.black, 0.005);
   usb.rotation.x = Math.PI / 2;
-  put(g, usb, 0, bottom - 0.005, 0);
+  put(g, usb, 0, bottom + 0.09, 0);
   const tongue = plate(0.6, 0.035, 0.025, 0.01, m.silver, 0.003);
   tongue.rotation.x = Math.PI / 2;
-  put(g, tongue, 0, bottom - 0.023, 0);
+  put(g, tongue, 0, bottom + 0.027, 0);
   for (let i = 0; i < 6; i++) {
     const hole = disk(0.055, 0.02, m.black);
     hole.rotation.x = 0;
-    put(g, hole, 1.3 + i * 0.23, bottom, 0);
+    put(g, hole, 1.3 + i * 0.23, bottom + .05, 0);
   }
   for (const x of [-2.6, 2.6]) {
     const hole = plate(0.31, 0.09, 0.015, 0.04, m.black, 0.003);
     hole.rotation.x = Math.PI / 2;
-    put(g, hole, x, -bottom, 0.02);
+    put(g, hole, x, -bottom-.005, 0.02);
   }
   return g;
 }
@@ -210,9 +160,9 @@ export function simFactory(p, m, d) {
   const g = new THREE.Group();
   const tray = plate(1.65, 0.3, 0.025, 0.12, m.silver, 0.005);
   tray.rotation.x = Math.PI / 2;
-  put(g, tray, -2.0, -d.dimensions.length / 20 - 0.005, 0);
+  put(g, tray, -2.0, -d.dimensions.length / 20 + 0.02, 0);
   const hole = disk(0.025, 0.035, m.black);
   hole.rotation.x = 0;
-  put(g, hole, -2.55, -d.dimensions.length / 20 - 0.025, 0);
+  put(g, hole, -2.55, -d.dimensions.length / 20 + 0.004, 0);
   return g;
 }

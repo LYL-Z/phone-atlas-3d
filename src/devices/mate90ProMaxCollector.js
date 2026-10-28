@@ -1,3 +1,4 @@
+import {collectorExterior} from "./exteriorProfiles.js";
 import { fact, source } from "../data/sources.js";
 export const device = {
   id: "huawei-mate90-collector",
@@ -8,6 +9,7 @@ export const device = {
   defaultSku: "512 GB",
   skus: ["512 GB", "1 TB"],
   units: { mmPerUnit: 10, axes: "X width / Y length / +Z screen" },
+  exteriorProfile: collectorExterior,
   dimensions: { length: 164.5, width: 78.7, thickness: 8.15 },
   ...source("specs"),
   colors: [
