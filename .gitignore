@@ -7,6 +7,7 @@ reference-input/
 evidence/reference-sheet-*.jpg
 Mate90_3D_Explorer_AI_Development_Prompt.md
 Mate90_Collector_Reference_Images.zip
+Phone_Atlas_*_Brief.md
 *.log
 .env
 .env.*
