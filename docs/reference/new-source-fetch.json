@@ -1,0 +1,26 @@
+[
+  {
+    "sourceUrl": "https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/phones/mate90-pro-max/img/design/design-chip.jpg",
+    "capturedAt": "2026-10-28",
+    "file": "design-chip.jpg",
+    "bytes": 397516,
+    "sha256": "9acf6e5c2d10f227549d02c1ce00951c13fd242af2417118b32b653682773a8e",
+    "license": "unknown, local reference only"
+  },
+  {
+    "sourceUrl": "https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/phones/mate90-pro-max/img/design/design-color-phone-2.jpg",
+    "capturedAt": "2026-10-28",
+    "file": "design-color-phone-2.jpg",
+    "bytes": 77229,
+    "sha256": "72d8d502bf1a71a9a0cbdfc687ab6bbff07bf50c4543e34c7fb87ae7fe0c90e6",
+    "license": "unknown, local reference only"
+  },
+  {
+    "sourceUrl": "https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/phones/mate90-pro-max/img/design/design-screen-reflection.jpg",
+    "capturedAt": "2026-10-28",
+    "file": "design-screen-reflection.jpg",
+    "bytes": 449813,
+    "sha256": "1756b70035fd51644aa4e0deaf08f100adf90b0eb3ed71274166787c99b94beb",
+    "license": "unknown, local reference only"
+  }
+]

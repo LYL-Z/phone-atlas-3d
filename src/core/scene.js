@@ -3,6 +3,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {createStudio} from "./studio.js";
 import {qualityPresets} from "./quality.js";
 export function createScene(container) {
+  if(new URLSearchParams(location.search).has('no-webgl'))throw Error('WebGL unavailable (simulated fallback test)');
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,

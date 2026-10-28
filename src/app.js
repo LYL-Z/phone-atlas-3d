@@ -113,6 +113,7 @@ function go(target) {
 }
 function select(id) {
   if (id && !model.groups.has(id)) return;
+  if(id&&document.body.dataset.immersive==='true')document.body.dataset.drawer='info';
   const s = store.get();
   if (id && s.hidden.has(id)) {
     const hidden = new Set(s.hidden);
@@ -215,6 +216,7 @@ function rebuild() {
   refreshRegistry();
 }
 const actions = {
+  immerse(value){document.body.dataset.immersive=String(value);delete document.body.dataset.drawer;$("immersive").textContent=value?'展开面板':'沉浸外观';$("immersive").setAttribute('aria-pressed',String(value));camera.view(camera.current(),store.get().t>.1);},
   select,
   focus,
   go,

@@ -15,7 +15,7 @@ export function createCameraController(engine, container) {
   const responsiveDistance = () => {
     const r = container.getBoundingClientRect();
     return Math.max(
-      container.clientWidth < 761 ? 56 : 46,
+      container.clientWidth < 761 ? 56 : document.body.dataset.immersive==='true'?38:46,
       32 / Math.max(0.62, r.width / r.height),
     );
   };
