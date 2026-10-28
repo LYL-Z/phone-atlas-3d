@@ -1,77 +1,38 @@
 import * as THREE from "three";
-import { disk, ring, put, plate, textPlane } from "./geometry.js";
-export function islandFactory(p, m) {
-  const g = new THREE.Group();
-  put(g, ring(3.18, 2.95, 0.17, m.metal));
-  put(g, ring(3.08, 2.96, 0.025, m.silver), 0, 0, -0.1);
-  put(g, ring(3.16, 3.09, 0.02, m.shell), 0, 0, -0.135);
-  const face = disk(2.97, 0.055, m.black);
-  put(g, face, 0, 0, -0.14);
-  const med = disk(1.1, 0.07, m.metal);
-  put(g, med, 0, 0, -0.205);
-  put(g, ring(1.13, 1.07, 0.04, m.silver), 0, 0, -0.225);
-  const logo = textPlane("XMAGE", 1.65, 0.35, "#e9efdf", 200);
-  logo.rotation.y = Math.PI;
-  put(g, logo, 0, 0, -0.245);
-  for (let i = 0; i < 4; i++) {
-    const contact = plate(0.28, 0.07, 0.04, 0.03, m.silver, 0.006);
-    put(g, contact, -0.6 + i * 0.4, -3.04, -0.12);
-  }
-  return g;
+import {disk,ring,put,plate,textPlane,outline} from "./geometry.js";
+import {turned,opticalDome,role} from "./profileGeometry.js";
+import {collectorExterior} from "../devices/exteriorProfiles.js";
+export function islandFactory(p,m,d){
+ const g=new THREE.Group(),r=(d.exteriorProfile||collectorExterior).starRadius;
+ put(g,role(turned([[r-.16,.13],[r-.02,.075],[r+.035,-.01],[r+.035,-.09],[r-.005,-.15],[r-.12,-.18],[r-.16,.13]],m.metal),'mount-shoulder'));
+ put(g,role(turned([[r-.075,-.105],[r+.012,-.155],[r-.005,-.235],[r-.035,-.28],[r-.10,-.272],[r-.16,-.22],[r-.15,-.15],[r-.075,-.105]],m.gem||m.glass),'gem-star-ring'));
+ put(g,role(turned([[r-.18,-.15],[r-.16,-.20],[r-.17,-.275],[r-.22,-.28],[r-.23,-.18],[r-.18,-.15]],m.black),'optical-gasket'));
+ // Openings follow visible lenses; no assumed sensor package or optical prescription.
+ const shape=new THREE.Shape();shape.absarc(0,0,r-.19,0,Math.PI*2,false);
+ for(const [x,y,radius]of [[1.98,0,.59],[-1.98,0,.57],[0,1.91,.43],[-1.02,1.74,.18]]){const h=new THREE.Path();h.absarc(x,y,radius,0,Math.PI*2,true);shape.holes.push(h);}
+ const flashOpening=outline(.61,.21,.1);shape.holes.push(new THREE.Path(flashOpening.getPoints(12).map(v=>new THREE.Vector2(v.x,v.y-2.07)).reverse()));
+ const faceGeo=new THREE.ExtrudeGeometry(shape,{depth:.025,bevelEnabled:false,curveSegments:48});faceGeo.translate(0,0,-.275);
+ put(g,role(new THREE.Mesh(faceGeo,m.cameraFace||m.black),'optical-face'));
+ const mr=(d.exteriorProfile||collectorExterior).medallionRadius;
+ put(g,role(turned([[0,-.30],[mr*.25,-.298],[mr*.55,-.288],[mr*.82,-.266],[mr,-.24],[mr+.015,-.19],[mr-.035,-.16],[0,-.16]],m.medallion||m.metal),'xmage-medallion'));
+ const logo=textPlane('XMAGE',1.5,.33,'#e4e8d9',165);logo.rotation.y=Math.PI;put(g,role(logo,'xmage-print'),0,0,-.304);
+ // Fine machining lines on the visible collar, not a fabricated bayonet mechanism.
+ for(let i=0;i<3;i++)put(g,role(ring(r+.015,r+.003,.012,m.metal),'collar-machining'),0,0,.04-i*.035);
+ for(let i=0;i<4;i++)put(g,role(plate(.18,.055,.024,.018,m.silver,.004),'accessory-contact'),-.4+i*.27,-r+.03,-.08);
+ return g;
 }
-export function lensFactory(p, m) {
-  const g = new THREE.Group(),
-    r = p.config.r || 0.48;
-  put(g, disk(r, 0.18, m.black));
-  put(g, ring(r + 0.015, r - 0.035, 0.035, m.black), 0, 0, -0.1);
-  put(g, ring(r - 0.08, r - 0.16, 0.07, m.black), 0, 0, -0.145);
-  for (let i = 0; i < 3; i++) {
-    const glass = new THREE.MeshPhysicalMaterial({
-      color: i === 1 ? "#183b58" : "#172537",
-      metalness: 0.42,
-      roughness: 0.055,
-      iridescence: 0.6,
-      iridescenceIOR: 1.35,
-      clearcoat: 1,
-      clearcoatRoughness: 0.04,
-    });
-    put(g, disk(r - 0.15 - i * 0.035, 0.018, glass), 0, 0, -0.15 - i * 0.027);
-  }
-  put(g, disk(r * 0.26, 0.01, m.black), 0, 0, -0.24);
-  put(g, ring(r * 0.31, r * 0.27, 0.007, m.copper), 0, 0, -0.246);
-  const glint = new THREE.Mesh(
-    new THREE.SphereGeometry(r * 0.12, 16, 8),
-    new THREE.MeshBasicMaterial({ color: "#839ab8" }),
-  );
-  glint.scale.set(1, 0.32, 0.05);
-  put(g, glint, r * 0.23, r * 0.28, -0.25);
-  const reflection = new THREE.Mesh(
-    new THREE.CircleGeometry(r * 0.28, 32),
-    new THREE.MeshBasicMaterial({
-      color: "#b4cce8",
-      transparent: true,
-      opacity: 0.33,
-      depthWrite: false,
-      side: THREE.DoubleSide,
-    }),
-  );
-  reflection.scale.set(1, 0.19, 1);
-  reflection.rotation.z = -0.4;
-  put(g, reflection, -r * 0.16, r * 0.35, -0.262);
-  if (p.config.periscope) {
-    const prism = plate(r * 1.3, r * 1.15, 0.025, 0.12, m.glass, 0.01);
-    put(g, prism, 0, 0, -0.25);
-  }
-  return g;
+export function lensFactory(p,m){
+ const g=new THREE.Group(),r=p.config.r||.48;
+ put(g,role(turned([[r*.88,.05],[r*.94,-.025],[r*.94,-.13],[r*.82,-.18],[r*.69,-.18],[r*.69,-.05],[r*.88,.05]],m.black),'lens-barrel'));
+ put(g,role(turned([[r*.73,-.13],[r*.76,-.17],[r*.71,-.195],[r*.65,-.185],[r*.73,-.13]],m.metal),'lens-bevel'));
+ put(g,role(disk(r*.61,.025,m.black),'aperture'),0,0,-.125);
+ for(let i=0;i<2;i++)put(g,role(opticalDome(r*(.64-i*.1),.018+i*.008,m.lens||m.glass),'curved-optical-element'),0,0,-.185-i*.022);
+ if(p.config.periscope){const prism=plate(r*.93,r*.78,.016,.08,m.lens||m.glass,.005);put(g,role(prism,'periscope-window'),0,0,-.212);}
+ return g;
 }
-export function flashFactory(p, m) {
-  const g = new THREE.Group();
-  put(g, plate(0.6, 0.2, 0.035, 0.09, m.silver, 0.005));
-  put(g, plate(0.49, 0.14, 0.012, 0.06, m.white, 0.003), 0, 0, -0.026);
-  return g;
-}
-export function lensCoverFactory(p, m) {
-  const g = new THREE.Group();
-  put(g, ring(2.97, 2.91, 0.015, m.silver));
-  return g;
+export function flashFactory(p,m){const g=new THREE.Group();put(g,role(plate(.6,.2,.035,.09,m.metal,.007),'flash-recess'));put(g,role(plate(.49,.14,.012,.06,m.white,.004),'flash-diffuser'),0,0,-.026);return g;}
+export function lensCoverFactory(p,m,d){
+ const g=new THREE.Group(),r=(d.exteriorProfile||collectorExterior).starRadius;
+ put(g,role(turned([[r-.24,.015],[r-.19,0],[r-.20,-.014],[r-.255,-.01],[r-.24,.015]],m.glass),'cover-edge'));
+ return g;
 }

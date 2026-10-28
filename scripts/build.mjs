@@ -9,10 +9,11 @@ for (const p of [
   "README.md",
   "SOURCE_NOTES.md",
   "TEST_CHECKLIST.md",
+  "docs",
 ])
   await cp(p, `dist/${p}`, { recursive: true });
 await mkdir("dist/tests", { recursive: true });
-await cp("tests/browser.html", "dist/tests/browser.html");
+for(const file of ["browser.html","fidelity.html","performance-benchmark"])await cp(`tests/${file}`,`dist/tests/${file}`,{recursive:true});
 await writeFile("dist/.nojekyll", "");
 console.log(
   "Static site prepared in dist/ (references and original photos excluded).",

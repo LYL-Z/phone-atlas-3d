@@ -1,0 +1,9 @@
+{
+  "clientWidth": 390,
+  "error": "三维场景不可用。请启用 WebGL 2，或通过本地 HTTP 服务打开并检查 vendor 文件。机型信息与来源仍可查看。详情：WebGL unavailable (simulated fallback test)",
+  "facts": "尺寸：164.5 × 78.7 × 8.15 mm重量：约 235 g屏幕：6.9 英寸 · 双层 OLED分辨率：2848 × 1320刷新率：1–120 Hz LTPO保护玻璃：玄武昆仑玻璃处理器：麒麟 9050 Pro运行内存：16 GB存储：512 GB / 1 TB系统：HarmonyOS 7.0电池：6800 mAh 典型 / 6615 mAh 额定充电上限：100 W 有线 / 50 W 无线",
+  "mode": "true",
+  "scrollWidth": 390,
+  "sourceDialogOpen": true,
+  "sourceLinks": 8
+}

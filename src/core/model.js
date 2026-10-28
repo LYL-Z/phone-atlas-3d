@@ -2,12 +2,13 @@ import * as THREE from "three";
 import { batchPart } from "./optimize.js";
 import { factories } from "../factories/index.js";
 import { createMaterials } from "./materials.js";
-export function createModel(device, color) {
+export function createModel(device, color, quality="medium") {
   const root = new THREE.Group(),
     groups = new Map(),
     categories = new Map(),
-    materials = createMaterials(color),
-    styleMaterials = [];
+    materials = createMaterials(color, quality),
+    styleMaterials = [],
+    factoryMaterials=new Set(), perPartMaterials=new Map();
   for (const c of device.categories) {
     const g = new THREE.Group();
     g.name = c.id;
@@ -18,6 +19,7 @@ export function createModel(device, color) {
     const factory = factories[part.geometryFactory];
     if (!factory) throw Error("Missing factory " + part.geometryFactory);
     const obj = factory(part, materials, device, color);
+    obj.traverse(o=>{for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])factoryMaterials.add(m);});
     batchPart(obj);
     obj.name = part.id;
     obj.position.fromArray(part.assembledTransform.position);
@@ -32,7 +34,9 @@ export function createModel(device, color) {
           ? child.material
           : [child.material];
         child.material = mats.map((mat) => {
-          const clone = mat.clone();
+          const key=part.id+':'+mat.uuid;
+          if(perPartMaterials.has(key))return perPartMaterials.get(key);
+          const clone = mat.clone();perPartMaterials.set(key,clone);
           styleMaterials.push({
             mat: clone,
             id: part.id,
@@ -73,7 +77,8 @@ export function createModel(device, color) {
       });
       geos.forEach((g) => g.dispose());
       mats.forEach((m) => m.dispose());
-      Object.values(materials).forEach((m) => m.dispose());
+      factoryMaterials.forEach(m=>{for(const v of Object.values(m))if(v?.isTexture)textures.add(v);m.dispose();});
+      Object.values(materials).forEach((m) => {if(m?.isMaterial){for(const v of Object.values(m))if(v?.isTexture)textures.add(v);m.dispose();}});
       textures.forEach((t) => t.dispose());
       root.removeFromParent();
     },

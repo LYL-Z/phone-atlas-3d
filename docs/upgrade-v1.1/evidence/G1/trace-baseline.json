@@ -1,0 +1,4 @@
+{
+  "traceArtifact": "trace-baseline-trace.json.gz",
+  "traceCapEvents": 60000
+}

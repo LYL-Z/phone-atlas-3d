@@ -10,6 +10,7 @@ const mime = {
   ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
+  ".jpg": "image/jpeg",
   ".svg": "image/svg+xml",
   ".ttf": "font/ttf",
   ".md": "text/plain; charset=utf-8",
@@ -21,13 +22,15 @@ http
       let rel =
         decodeURIComponent(url.pathname).replace(/^\//, "") || "index.html";
       if (
-        !/^(index\.html|styles\.css|src\/|vendor\/|favicon\.svg|README\.md|SOURCE_NOTES\.md|TEST_CHECKLIST\.md|tests\/browser\.html)/.test(
+        !/^(index\.html|styles\.css|src\/|vendor\/|favicon\.svg|README\.md|SOURCE_NOTES\.md|TEST_CHECKLIST\.md|tests\/|docs\/)/.test(
           rel,
         )
       )
         throw Error("not public");
       let file = path.resolve(root, rel);
       if (!file.startsWith(root + path.sep)) throw Error("path");
+      const normalized=path.relative(root,file).replaceAll(path.sep,'/');
+      if(!/^(index\.html|styles\.css|src\/|vendor\/|favicon\.svg|README\.md|SOURCE_NOTES\.md|TEST_CHECKLIST\.md|tests\/|docs\/)/.test(normalized))throw Error('not public after normalization');
       if (!(await stat(file)).isFile()) throw Error("not file");
       res.writeHead(200, {
         "Content-Type": mime[path.extname(file)] || "application/octet-stream",

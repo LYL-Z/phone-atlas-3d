@@ -1222,3 +1222,25 @@ body[data-drawer] .panel {
     padding: 6px;
   }
 }
+
+/* v1.1: small render controls retain the incumbent workbench. */
+#render-settings{position:relative;font-size:12px;color:var(--text)}
+#render-settings summary{cursor:pointer;padding:9px 8px;border-radius:6px;white-space:nowrap}
+#render-settings summary:hover{background:#29362d}
+.render-options{position:absolute;right:0;top:40px;width:230px;padding:18px;background:#1b231f;border:1px solid #475348;border-radius:10px;z-index:40;display:grid;gap:14px;box-shadow:0 12px 30px #0006}
+.render-options label{display:flex;align-items:center;justify-content:space-between;gap:12px}.render-options select{max-width:145px;padding:7px;background:#29312d;color:#eef1e9;border:1px solid #53614f;border-radius:5px}.render-options small{color:#b0bcb2;font-size:10px;line-height:1.7}.screen-toggle{justify-content:flex-start!important}
+.material-debug{position:fixed;bottom:160px;left:50%;transform:translateX(-50%);max-width:700px;background:#1b231f;padding:18px;z-index:50;color:#dde5d8;font-size:13px;line-height:1.7}
+@media(max-width:760px){#render-settings{font-size:10px}#render-settings summary{padding:8px 3px}.topbar nav{gap:1px}.render-options{right:-100px;max-width:70vw}.topbar #help{display:none}}
+
+body[data-immersive="true"] .tree-panel,body[data-immersive="true"] .info-panel{display:none}
+body[data-immersive="true"] .scene-title{left:32px}
+body[data-immersive="true"] .scene-modes{right:32px;left:auto;transform:none}
+body[data-immersive="true"][data-drawer="info"] .info-panel{display:flex;z-index:22}
+body[data-immersive="true"][data-drawer="tree"] .tree-panel{display:flex;z-index:22}
+body[data-immersive="true"] .close-panel{display:block}
+body[data-immersive="true"] .mobile-tools{display:flex}
+body[data-fallback="true"] #info-panel{display:flex!important;z-index:15}
+@media(min-width:761px){body[data-immersive="true"] .mobile-tools{position:absolute;right:32px;bottom:88px;gap:8px}}
+@media(max-width:760px){body[data-immersive="true"] .scene-title{left:18px}body[data-immersive="true"] .scene-modes{right:16px}#immersive{font-size:10px;padding:7px 4px}.topbar #sources{font-size:10px;padding:7px 4px}.topbar .brand{flex-shrink:0}.topbar nav{margin-left:auto}.topbar .device-switch{min-width:65px}.topbar .device-switch select{max-width:100px}body[data-fallback="true"] #info-panel{top:220px;max-height:40vh}}
+
+@media(max-width:760px){.topbar #immersive,.topbar #sources,#render-settings summary{min-height:44px;display:inline-flex;align-items:center}}

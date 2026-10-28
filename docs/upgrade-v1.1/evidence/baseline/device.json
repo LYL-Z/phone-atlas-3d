@@ -1,0 +1,1926 @@
+{
+  "id": "huawei-mate90-collector",
+  "brand": "HUAWEI",
+  "model": "Mate 90 Pro Max",
+  "edition": "典藏版",
+  "year": 2026,
+  "defaultSku": "512 GB",
+  "skus": [
+    "512 GB",
+    "1 TB"
+  ],
+  "units": {
+    "mmPerUnit": 10,
+    "axes": "X width / Y length / +Z screen"
+  },
+  "dimensions": {
+    "length": 164.5,
+    "width": 78.7,
+    "thickness": 8.15
+  },
+  "sourceId": "specs",
+  "title": "华为 · 典藏版规格参数",
+  "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+  "sourceType": "manufacturer",
+  "confidence": "official",
+  "verifiedAt": "2026-10-27",
+  "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。",
+  "colors": [
+    {
+      "id": "green",
+      "name": "翡冷翠",
+      "shell": "#a6b877",
+      "inset": "#668643",
+      "metal": "#bfce91"
+    },
+    {
+      "id": "rose",
+      "name": "玫瑰金",
+      "shell": "#cfa58e",
+      "inset": "#b6826b",
+      "metal": "#e2baa4"
+    },
+    {
+      "id": "white",
+      "name": "晶钻白",
+      "shell": "#d1d3d0",
+      "inset": "#bec5c1",
+      "metal": "#e4e6e3"
+    },
+    {
+      "id": "black",
+      "name": "曜石黑",
+      "shell": "#373b3b",
+      "inset": "#22292a",
+      "metal": "#7c8380"
+    }
+  ],
+  "facts": [
+    {
+      "label": "尺寸",
+      "value": "164.5 × 78.7 × 8.15 mm",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "重量",
+      "value": "约 235 g",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "屏幕",
+      "value": "6.9 英寸 · 双层 OLED",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "分辨率",
+      "value": "2848 × 1320",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "刷新率",
+      "value": "1–120 Hz LTPO",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "保护玻璃",
+      "value": "玄武昆仑玻璃",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "处理器",
+      "value": "麒麟 9050 Pro",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "运行内存",
+      "value": "16 GB",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "存储",
+      "value": "512 GB / 1 TB",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "系统",
+      "value": "HarmonyOS 7.0",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "电池",
+      "value": "6800 mAh 典型 / 6615 mAh 额定",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    },
+    {
+      "label": "充电上限",
+      "value": "100 W 有线 / 50 W 无线",
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "official",
+      "verifiedAt": "2026-10-27",
+      "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+    }
+  ],
+  "categories": [
+    {
+      "id": "exterior",
+      "name": "外装结构"
+    },
+    {
+      "id": "imaging",
+      "name": "影像系统"
+    },
+    {
+      "id": "compute",
+      "name": "计算与存储"
+    },
+    {
+      "id": "energy",
+      "name": "能源与散热"
+    },
+    {
+      "id": "connection",
+      "name": "外围与连接"
+    }
+  ],
+  "capabilities": {
+    "hinge": null,
+    "accessoryMount": "H1-reference-only"
+  },
+  "parts": [
+    {
+      "id": "frame",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "精密金属中框",
+      "geometryFactory": "frame",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        0
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "机身包络",
+          "value": "164.5 × 78.7 × 8.15 mm",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "back",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "晶格纹理背盖",
+      "geometryFactory": "back",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          -0.368
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        -8
+      ],
+      "explodeOrder": 0,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "官方配色",
+          "value": "翡冷翠 / 玫瑰金 / 晶钻白 / 曜石黑",
+          "sourceId": "sku",
+          "title": "华为 · Mate 90 系列购买指引",
+          "sourceUrl": "https://consumer.huawei.com/cn/support/content/zh-cn16119533/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取型号、存储及四色。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "front-glass",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "玄武昆仑玻璃",
+      "geometryFactory": "frontGlass",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0.386
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        7
+      ],
+      "explodeOrder": 0,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "保护玻璃",
+          "value": "玄武昆仑玻璃",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "oled",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "双层 OLED 显示模组",
+      "geometryFactory": "oled",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0.31
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        5.5
+      ],
+      "explodeOrder": 1,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "面板",
+          "value": "6.9 英寸 · 双层 OLED",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "刷新率",
+          "value": "1–120 Hz LTPO",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "分辨率",
+          "value": "2848 × 1320",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "buttons",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "侧键与天线断点",
+      "geometryFactory": "buttons",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        2.6,
+        0,
+        0
+      ],
+      "explodeOrder": 4,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "功能",
+          "value": "音量键 / 电源与侧边指纹",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "ports",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "USB-C 与声学开孔",
+      "geometryFactory": "ports",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -2.4,
+        0
+      ],
+      "explodeOrder": 4,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "接口",
+          "value": "USB Type-C · USB 3.1 Gen 1",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "sim",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "SIM 卡托",
+      "geometryFactory": "sim",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -2,
+        -1.2,
+        0
+      ],
+      "explodeOrder": 2,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "卡型",
+          "value": "双 nano SIM，支持 eSIM",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "island",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "星环与 XMAGE 饰盖",
+      "geometryFactory": "island",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          4.75,
+          -0.535
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        -8
+      ],
+      "explodeOrder": 0,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "lens-cover",
+      "parentId": "exterior",
+      "category": "exterior",
+      "displayName": "镜头保护玻璃边缘",
+      "geometryFactory": "lensCover",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          4.75,
+          -0.84
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        -9.5
+      ],
+      "explodeOrder": 0,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "product",
+      "title": "华为 · 产品介绍及外观",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "外观以官方图片及附件校准；局部厚度、圆角、孔径为比例近似。"
+    },
+    {
+      "id": "main-camera",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "5000 万像素主摄",
+      "geometryFactory": "lens",
+      "config": {
+        "r": 0.62
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          1.98,
+          4.75,
+          -0.64
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        2.8,
+        0,
+        -4.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "像素",
+          "value": "5000 万像素",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "光圈",
+          "value": "F1.4–F4.0 可变光圈",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "防抖 / 阵列",
+          "value": "OIS / RYYB",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能参数官方确认；外露镜头位置按图近似。镜片层数、封装厚度与内部光路仅作工程示意。"
+    },
+    {
+      "id": "ultrawide",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "4000 万像素超广角",
+      "geometryFactory": "lens",
+      "config": {
+        "r": 0.44
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          6.66,
+          -0.64
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        1.3,
+        -4.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "像素",
+          "value": "4000 万像素",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "光圈 / 阵列",
+          "value": "F2.2 / RYYB",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能参数官方确认；外露镜头位置按图近似。镜片层数、封装厚度与内部光路仅作工程示意。"
+    },
+    {
+      "id": "telephoto",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "2 亿像素长焦",
+      "geometryFactory": "lens",
+      "config": {
+        "r": 0.6,
+        "periscope": true
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          -1.98,
+          4.75,
+          -0.64
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -2.8,
+        0,
+        -4.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "像素",
+          "value": "2 亿像素",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "光圈 / 防抖",
+          "value": "F2.6 / OIS",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "功能",
+          "value": "长焦微距 / RYYB",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能参数官方确认；外露镜头位置按图近似。镜片层数、封装厚度与内部光路仅作工程示意。"
+    },
+    {
+      "id": "redmaple",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "第三代红枫原色摄像头",
+      "geometryFactory": "lens",
+      "config": {
+        "r": 0.18
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          -1.02,
+          6.49,
+          -0.64
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -1.4,
+        1.4,
+        -4.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "代际",
+          "value": "第三代红枫原色摄像头",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能参数官方确认；外露镜头位置按图近似。镜片层数、封装厚度与内部光路仅作工程示意。"
+    },
+    {
+      "id": "flash",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "LED 闪光灯",
+      "geometryFactory": "flash",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          2.68,
+          -0.78
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -0.8,
+        -4.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "类型",
+          "value": "LED 闪光灯",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "位置按图近似。"
+    },
+    {
+      "id": "front-camera",
+      "parentId": "imaging",
+      "category": "imaging",
+      "displayName": "前摄与 3D 深感组件",
+      "geometryFactory": "lens",
+      "config": {
+        "r": 0.18
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          7.58,
+          0.15
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        1.2,
+        3.6
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "前置",
+          "value": "1300 万像素超广角，F2.0",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "辅助",
+          "value": "3D 深感摄像头",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "specs",
+      "title": "华为 · 典藏版规格参数",
+      "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+      "sourceType": "manufacturer",
+      "confidence": "inferred",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能参数官方确认；外露镜头位置按图近似。镜片层数、封装厚度与内部光路仅作工程示意。"
+    },
+    {
+      "id": "pcb",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "主 PCB 与连接器",
+      "geometryFactory": "board",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          5.9,
+          0.03
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        1,
+        -1.5
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "主板轮廓、连接器位置为工程示意；不是实机 PCB 复刻。"
+    },
+    {
+      "id": "shields",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "电磁屏蔽罩",
+      "geometryFactory": "shields",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          5.9,
+          -0.09
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        1,
+        -2.8
+      ],
+      "explodeOrder": 4,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "展示屏蔽功能；分区和形状均为示意。"
+    },
+    {
+      "id": "soc",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "麒麟 9050 Pro",
+      "geometryFactory": "package",
+      "config": {
+        "w": 1.85,
+        "h": 1.7,
+        "text": "Kirin 9050 Pro"
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0.25,
+          6.12,
+          -0.12
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        1,
+        -4
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "处理器",
+          "value": "麒麟 9050 Pro",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "名称由官网确认；封装尺寸、位置和焊点为工程示意。附件晶粒图未独立核实，不据此复制内部布局。"
+    },
+    {
+      "id": "ram",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "16 GB 运行内存",
+      "geometryFactory": "package",
+      "config": {
+        "w": 1.3,
+        "h": 1.4,
+        "text": "16 GB RAM"
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          -2.25,
+          6,
+          -0.12
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -1.6,
+        1,
+        -4
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "容量",
+          "value": "16 GB RAM",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "独立展示便于讲解，不表示实机 RAM 独立放置。"
+    },
+    {
+      "id": "storage",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "存储模块",
+      "geometryFactory": "package",
+      "config": {
+        "w": 1.25,
+        "h": 1.45,
+        "text": "STORAGE"
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          2.3,
+          6,
+          -0.12
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        1.6,
+        1,
+        -4
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "可选容量",
+          "value": "512 GB / 1 TB",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "当前 SKU 见顶部；封装、规格类型和位置未测绘。"
+    },
+    {
+      "id": "power-rf",
+      "parentId": "compute",
+      "category": "compute",
+      "displayName": "供电与射频示意分区",
+      "geometryFactory": "peripheral",
+      "config": {
+        "w": 1.1,
+        "h": 1.6,
+        "connector": true
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          -2.4,
+          4,
+          -0.12
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -2,
+        0,
+        -4
+      ],
+      "explodeOrder": 5,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "仅表示电源管理、射频系统功能，不表示特定芯片数量与型号。"
+    },
+    {
+      "id": "battery",
+      "parentId": "energy",
+      "category": "energy",
+      "displayName": "6800 mAh 电池",
+      "geometryFactory": "battery",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          -1.75,
+          -0.03
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -1,
+        -2.3
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "典型容量",
+          "value": "6800 mAh",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "额定容量",
+          "value": "6615 mAh",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        },
+        {
+          "label": "充电上限",
+          "value": "100 W 有线 / 50 W 无线",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "外形、厚度与电池连接端为示意，不宣称精确电芯尺寸。"
+    },
+    {
+      "id": "coil",
+      "parentId": "energy",
+      "category": "energy",
+      "displayName": "无线充电线圈",
+      "geometryFactory": "coil",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          -1.3,
+          -0.275
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -0.3,
+        -5.2
+      ],
+      "explodeOrder": 1,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "无线充电",
+          "value": "最高 50 W",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "同心螺旋解释电磁耦合；匝数和排布为工程示意。"
+    },
+    {
+      "id": "vc",
+      "parentId": "energy",
+      "category": "energy",
+      "displayName": "VC 均热板",
+      "geometryFactory": "slab",
+      "config": {
+        "w": 6.6,
+        "h": 10.5,
+        "material": "copper",
+        "text": "VC · 示意形状"
+      },
+      "materialPreset": "copper",
+      "assembledTransform": {
+        "position": [
+          0,
+          -0.8,
+          0.205
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -0.5,
+        2.6
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "仅解释热扩散；材质配方、面积、空腔与真实轮廓均未验证。"
+    },
+    {
+      "id": "graphite",
+      "parentId": "energy",
+      "category": "energy",
+      "displayName": "导热膜",
+      "geometryFactory": "slab",
+      "config": {
+        "w": 6.75,
+        "h": 13.6,
+        "material": "ceramic",
+        "text": "THERMAL FILM"
+      },
+      "materialPreset": "ceramic",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          0.258
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        4
+      ],
+      "explodeOrder": 2,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "外形与贴附方向为工程示意，不标记实际热阻和厚度。"
+    },
+    {
+      "id": "battery-terminal",
+      "parentId": "energy",
+      "category": "energy",
+      "displayName": "电池连接端",
+      "geometryFactory": "peripheral",
+      "config": {
+        "w": 0.8,
+        "h": 0.35,
+        "connector": true
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          2.4,
+          2.3,
+          -0.08
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        2,
+        -0.6,
+        -2.8
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "连接结构示意，无电路走线含义。"
+    },
+    {
+      "id": "speaker",
+      "parentId": "connection",
+      "category": "connection",
+      "displayName": "扬声器模组",
+      "geometryFactory": "peripheral",
+      "config": {
+        "w": 3.3,
+        "h": 1.05,
+        "grille": true
+      },
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          1.5,
+          -7.25,
+          -0.03
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        1.2,
+        -1.4,
+        -2
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "音频",
+          "value": "立体声",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "功能官方确认，腔体、磁体与位置为工程示意。"
+    },
+    {
+      "id": "haptic",
+      "parentId": "connection",
+      "category": "connection",
+      "displayName": "振动单元",
+      "geometryFactory": "peripheral",
+      "config": {
+        "w": 1.7,
+        "h": 0.9,
+        "material": "silver"
+      },
+      "materialPreset": "silver",
+      "assembledTransform": {
+        "position": [
+          -2,
+          -7.3,
+          -0.03
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        -1.8,
+        -1.4,
+        -2
+      ],
+      "explodeOrder": 3,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "振动单元包络及布局未验证。"
+    },
+    {
+      "id": "usb-board",
+      "parentId": "connection",
+      "category": "connection",
+      "displayName": "USB-C 子板",
+      "geometryFactory": "peripheral",
+      "config": {
+        "w": 3.7,
+        "h": 0.65,
+        "material": "board",
+        "connector": true
+      },
+      "materialPreset": "board",
+      "assembledTransform": {
+        "position": [
+          0,
+          -6.35,
+          -0.03
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -1,
+        -3.4
+      ],
+      "explodeOrder": 4,
+      "pickable": true,
+      "visible": true,
+      "facts": [
+        {
+          "label": "接口",
+          "value": "USB Type-C",
+          "sourceId": "specs",
+          "title": "华为 · 典藏版规格参数",
+          "sourceUrl": "https://consumer.huawei.com/cn/phones/mate90-pro-max/specs/",
+          "sourceType": "manufacturer",
+          "confidence": "official",
+          "verifiedAt": "2026-10-27",
+          "notes": "本轮读取：区分普通版与典藏版。功能确认不代表几何测绘。"
+        }
+      ],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "子板外形、器件分布、连接方式均为工程示意。"
+    },
+    {
+      "id": "flex",
+      "parentId": "connection",
+      "category": "connection",
+      "displayName": "天线与柔性连接",
+      "geometryFactory": "flex",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          -1.1,
+          -0.21
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        -1,
+        -4
+      ],
+      "explodeOrder": 2,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "柔性连接说明部件关系，不代表真实 FPC 路由或天线走向。"
+    },
+    {
+      "id": "supports",
+      "parentId": "connection",
+      "category": "connection",
+      "displayName": "螺丝与支撑件",
+      "geometryFactory": "screws",
+      "config": {},
+      "materialPreset": "metal",
+      "assembledTransform": {
+        "position": [
+          0,
+          0,
+          -0.25
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "explodeVector": [
+        0,
+        0,
+        -6.5
+      ],
+      "explodeOrder": 1,
+      "pickable": true,
+      "visible": true,
+      "facts": [],
+      "sourceId": "schematic",
+      "title": "项目 · 工程示意说明",
+      "sourceUrl": "./SOURCE_NOTES.md",
+      "sourceType": "engineering_illustration",
+      "confidence": "schematic",
+      "verifiedAt": "2026-10-27",
+      "notes": "示意螺丝数量和位置不可作为实际拆机依据。"
+    }
+  ]
+}

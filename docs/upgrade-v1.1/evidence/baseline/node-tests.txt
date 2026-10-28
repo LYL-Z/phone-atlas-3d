@@ -1,0 +1,18 @@
+
+> phone-atlas-3d@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ device and every part have unique IDs, declared source and geometry metadata (0.8807ms)
+✔ official dimensions, Collector glass, memory and SKUs are retained (1.0269ms)
+✔ progress endpoints and all stagger functions are monotonic (0.4058ms)
+✔ 10 cycles of animated explode, selection, interruption and reassembly return to exact base (15.9303ms)
+✔ second fictitious device registers without replacing any core renderer (8.9253ms)
+✔ part-specific provenance warnings are not overwritten by source notes (0.1666ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.831

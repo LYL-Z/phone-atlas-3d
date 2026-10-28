@@ -1,3 +1,6 @@
+import {showMaterialPreview} from "./core/materialPreview.js";
+import {qualityPresets} from "./core/quality.js";
+import {createProfiler} from "./core/profiler.js";
 import * as THREE from "three";
 import { genericDevice } from "./devices/genericTestDevice.js";
 import { createScene } from "./core/scene.js";
@@ -63,7 +66,7 @@ function style(s) {
   for (const original of model.styleMaterials) {
     const { mat, id, category } = original;
     const xray = s.xray && category === "exterior";
-    const muted = s.selected && s.selected !== id;
+    const muted = false; // Selection preserves the other materials; X-ray is explicit.
     mat.opacity = xray
       ? Math.min(0.12, original.opacity)
       : muted
@@ -78,7 +81,7 @@ function style(s) {
     if (mat.emissive) {
       if (s.selected === id) {
         mat.emissive.set("#8aab4d");
-        mat.emissiveIntensity = 0.28;
+        mat.emissiveIntensity = 0.045;
       } else if (s.hover === id) {
         mat.emissive.set("#a1bd7b");
         mat.emissiveIntensity = 0.08;
@@ -110,6 +113,7 @@ function go(target) {
 }
 function select(id) {
   if (id && !model.groups.has(id)) return;
+  if(id&&document.body.dataset.immersive==='true')document.body.dataset.drawer='info';
   const s = store.get();
   if (id && s.hidden.has(id)) {
     const hidden = new Set(s.hidden);
@@ -165,7 +169,7 @@ function rebuild() {
   viewport.dataset.modelRevision = String(modelRevision);
   unsubscribe?.();
   model?.dispose();
-  model = createModel(device, color);
+  model = createModel(device, color, engine.quality);
   engine.scene.add(model.root);
   animator = createAnimator(store, model, device, reduced);
   tree = createTree(device, store, select, toggle);
@@ -208,9 +212,11 @@ function rebuild() {
   $("sku").replaceChildren(...device.skus.map((s) => new Option(s, s)));
   $("sku").value = sku;
   $("sku-caption").textContent = `${device.ramLabel || "16 GB"} + ${sku}`;
+  if($("screen-power"))actions?.screen?.($("screen-power").checked);
   refreshRegistry();
 }
 const actions = {
+  immerse(value){document.body.dataset.immersive=String(value);delete document.body.dataset.drawer;$("immersive").textContent=value?'展开面板':'沉浸外观';$("immersive").setAttribute('aria-pressed',String(value));camera.view(camera.current(),store.get().t>.1);},
   select,
   focus,
   go,
@@ -298,6 +304,9 @@ const actions = {
     rebuild();
     camera.view("iso");
   },
+  quality(value){engine.setQuality(value);slowWindows=0;rebuild();},
+  studio(value){engine.studio.apply(value,qualityPresets[engine.quality].environment);},
+  screen(on){model.root.traverse(o=>{if(o.isMesh&&o.material.userData?.surfaceRole==='oled'){o.material.emissiveIntensity=on?.8:0;}});},
   screenshot() {
     engine.renderer.render(engine.scene, engine.camera);
     engine.renderer.domElement.toBlob((blob) => {
@@ -349,6 +358,7 @@ controls = setupControls(store, actions);
 controls.sync(store.get());
 camera.view("iso", false, true);
 createPicking(engine, () => model, store, select, focus);
+if(new URLSearchParams(location.search).has("materials"))showMaterialPreview(engine,model);
 engine.controls.addEventListener("start", () => {
   camera.cancel();
   pendingFocus = false;
@@ -373,18 +383,23 @@ const debug = gl.getExtension("WEBGL_debug_renderer_info");
 perf.renderer = debug
   ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL)
   : gl.getParameter(gl.RENDERER);
+const profiler=createProfiler(engine.renderer);
+let benchmarkPhase=null;
 function tick(time) {
+  profiler.begin(time);
+  if(benchmarkPhase==="explode"){const t=(1-Math.cos(time/2500))/2;store.set({t,target:t,playing:false,selected:null});}
   const dt = Math.min(1, (time - lastTime) / 1000);
   lastTime = time;
-  animator.update(dt);
-  camera.update(dt, reduced);
+  profiler.span("animator + subscribers",()=>animator.update(dt));
+  profiler.span("camera",()=>camera.update(dt,reduced));
   if (pendingFocus && !store.get().playing) {
     pendingFocus = false;
     focus();
   }
-  engine.controls.update();
-  engine.renderer.render(engine.scene, engine.camera);
-  labels.update();
+  profiler.span("OrbitControls",()=>engine.controls.update());
+  profiler.span("render submission",()=>profiler.render(()=>engine.renderer.render(engine.scene, engine.camera)));
+  profiler.span("labels + raycast",()=>labels.update());
+  profiler.end();
   viewport.dataset.renderedRevision = String(modelRevision);
   viewport.dataset.renderedProgress = store.get().t.toFixed(3);
   frames++;
@@ -399,7 +414,7 @@ function tick(time) {
     );
     if (fps < 26) slowWindows++;
     else slowWindows = 0;
-    if (slowWindows === 3) {
+    if (slowWindows === 3 && !profiler.active) {
       engine.renderer.setPixelRatio(1);
       engine.resize();
       toast("已降低渲染分辨率以改善流畅度");
@@ -410,6 +425,7 @@ function tick(time) {
 }
 engine.renderer.setAnimationLoop(tick);
 document.addEventListener("visibilitychange", () => {
+  profiler.visibility();
   if (document.hidden) {
     engine.renderer.setAnimationLoop(null);
     store.set({ playing: false, target: store.get().t });
@@ -431,8 +447,11 @@ engine.renderer.domElement.addEventListener("webglcontextrestored", () => {
   $("fatal").hidden = false;
   $("fatal").textContent = "图形上下文已恢复，请刷新页面重新建立资源。";
 });
+let lastCompactViewport=viewport.clientWidth<761;
 window.addEventListener("resize", () => {
-  const desired = Math.min(devicePixelRatio, innerWidth < 761 ? 1.2 : 1.35);
+  const compact=viewport.clientWidth<761;
+  if(compact!==lastCompactViewport){lastCompactViewport=compact;camera.view(camera.current(),store.get().t>.1,true);}
+  const desired = Math.min(devicePixelRatio, qualityPresets[engine.quality].dpr);
   if (slowWindows < 3 && engine.renderer.getPixelRatio() !== desired) {
     engine.renderer.setPixelRatio(desired);
     engine.resize();
@@ -462,4 +481,10 @@ window.phoneAtlasDiagnostics = () => ({
   memory: { ...engine.renderer.info.memory },
   performance: { ...perf },
   dpr: engine.renderer.getPixelRatio(),
+  quality:engine.quality, studio:engine.studio.preset,
+  screenEmission:model.styleMaterials.filter(x=>x.mat.userData.surfaceRole==="oled").map(x=>x.mat.emissiveIntensity),
+  bodyEnvelopeMM:store.get().t===0?(()=>{const box=new THREE.Box3();for(const id of ["frame","back","front-glass","oled","buttons","ports","sim"])if(model.groups.has(id))box.union(new THREE.Box3().setFromObject(model.groups.get(id)));return box.getSize(new THREE.Vector3()).multiplyScalar(10).toArray();})():null,
+  surfaceRoles:model.styleMaterials.map(x=>({part:x.id,role:x.mat.userData.surfaceRole,metalness:x.mat.metalness,roughness:x.mat.roughness,opacity:x.mat.opacity,transparent:x.mat.transparent})),
 });
+
+if(new URLSearchParams(location.search).has('benchmark'))window.phoneAtlasBenchmark={start(label){document.querySelectorAll('dialog[open]').forEach(x=>x.close());actions.scrub(0);camera.view('iso',false,true);slowWindows=0;engine.renderer.setPixelRatio(Math.min(devicePixelRatio,qualityPresets[engine.quality].dpr));engine.resize();engine.renderer.domElement.tabIndex=0;engine.renderer.domElement.focus();profiler.start(label);},phase(name){benchmarkPhase=name;engine.controls.autoRotate=name==='rotate';engine.controls.autoRotateSpeed=2;profiler.phase(name);},finishPhase(){profiler.finishPhase();},stop(){benchmarkPhase=null;engine.controls.autoRotate=false;return profiler.stop();},capture(view,colorId){benchmarkPhase=null;engine.controls.autoRotate=false;if(colorId){color=device.colors.find(c=>c.id===colorId)||color;rebuild();}store.set({t:0,target:0,playing:false,selected:null,hover:null,xray:false,hidden:new Set()});camera.cancel();const views={back:[[0,1,-38],[0,1,0]],side:[[-30,1,-5],[0,1,0]],camera:[[-4,6.7,-13],[0,4.75,-.5]],front:[[0,1,38],[0,1,0]],surface:[[-4,-1,-15],[0,-1,-.4]]};const [position,look]=views[view]||views.back;engine.camera.position.fromArray(position);engine.controls.target.fromArray(look);engine.controls.update();},quality:actions.quality,studio:actions.studio,device:actions.device,diagnostics:()=>window.phoneAtlasDiagnostics()};

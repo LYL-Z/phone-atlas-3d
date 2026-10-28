@@ -1,0 +1,71 @@
+{
+  "hashMode": "Text normalized to LF; binary raw. Compare after checkout on any OS.",
+  "at": "2026-10-28T08:10:28.119Z",
+  "node": "v24.16.0",
+  "results": [
+    {
+      "name": "node tests",
+      "exitCode": 0,
+      "stdout": "✔ device and every part have unique IDs, declared source and geometry metadata (0.7065ms)\n✔ official dimensions, Collector glass, memory and SKUs are retained (0.4229ms)\n✔ progress endpoints and all stagger functions are monotonic (0.449ms)\n✔ 10 cycles of animated explode, selection, interruption and reassembly return to exact base (17.1836ms)\n✔ second fictitious device registers without replacing any core renderer (1.592ms)\n✔ part-specific provenance warnings are not overwritten by source notes (0.1529ms)\n✔ frame summaries use wall time, retain long stalls and report empty samples honestly (0.4819ms)\nℹ tests 7\nℹ suites 0\nℹ pass 7\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 88.8663\n",
+      "stderr": ""
+    },
+    {
+      "name": "geometry and surface contracts",
+      "exitCode": 0,
+      "stdout": "PASS: four-color envelope, finite apertures, frozen 31-part transforms, deterministic independent surface channels, rear optical normals.\n",
+      "stderr": "(node:43496) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:\n--import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"./tests/three-loader.mjs\", pathToFileURL(\"./\"));'\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    },
+    {
+      "name": "static build",
+      "exitCode": 0,
+      "stdout": "Static site prepared in dist/ (references and original photos excluded).\n",
+      "stderr": ""
+    }
+  ],
+  "sourceHashes": {
+    "index.html": "a7ae32f3ad8db43e530d3db9d4ea9046f6b0539296376b8ff1b141864354bcaf",
+    "styles.css": "35ffe1bd0a587fd5d901a7a6163109a5bcfd3ba3fa55ce50797aa987f874871e",
+    "src/app.js": "f0436480f4e0c360d28b2d288bada9045aa2313a18d0d08e13ae77c9706edeb5",
+    "src/core/animator.js": "194e1f64bc5ccdd37c93e039569e8412484ea326da82f42a50949687c15f48b9",
+    "src/core/camera.js": "c419a09bb143ba2baa333217bde6fb2d7284eea53200e491e79a251f9027a39e",
+    "src/core/materialPreview.js": "3f702c9a2d7c7b103a93bfb8dc83c9fbbba8b3e0b77d90228921294fe32dd16d",
+    "src/core/materials.js": "113a98bde574eb9e41da89495d4b7811bf7ee7296953e6be8ac9f43d2c9a18ab",
+    "src/core/model.js": "80fdf5c51c4b52728a2f084e7793f453b6d920a8c3429780e95e11d2701add32",
+    "src/core/modelRegistry.js": "01d35e34c8465c360cff5f43e5496376d830b00817741cd82d92dd1dac156e6d",
+    "src/core/optimize.js": "3d5fb372a574180f0228ad33ed80641d4196b363183089e33c5f362ff979ed04",
+    "src/core/picking.js": "11002435d718e81cd4445b8a404b6f9f36215f92aca529a7d6b7da46e72c3ab3",
+    "src/core/profiler.js": "f6a130af663d9c50f4ac2bfccaa1ae9f9f9f08ab4586c70f6a7fad88cbc0b3ed",
+    "src/core/quality.js": "7ea01edeb44037bbeed41100bfc5b12285c6602bf5e616e93b7affb5a0de4146",
+    "src/core/scene.js": "dc943d50be504aedda37607f5c19d1b4e42aa7dae6b5b15e3a9c3a78d7a343e6",
+    "src/core/stateStore.js": "d1a44a3d2037da59d0f3cd28569130e8ab858291b5769c3bd2db175d8f6301c1",
+    "src/core/studio.js": "fd113cbfc59e1ffade1aa69c7e4edc51ac9a4a550cd50c4be5b1a276718478d7",
+    "src/core/surfaceMaps.js": "14afb964f0f531afbe1cbf19e881cc7650fae2d63034feb106286ad97108e793",
+    "src/data/sources.js": "41f348d298af7b527942f9251334157dba31134fa07f9c077f016842469a4625",
+    "src/devices/exteriorProfiles.js": "2ac5dc9b27afebc7fa6e2d575dc695578c408446849070282b17bf53dbbd833e",
+    "src/devices/genericTestDevice.js": "d4aee5cd7690e1831f9ce6431e878715b5909cee985dccbc50ef6ac6e3be6248",
+    "src/devices/mate90ProMaxCollector.js": "303cbc5cd7f0286fd2c129b9552b13bf27a4f0ad0e4cafc5266d3341c6ab2ee8",
+    "src/factories/boardFactory.js": "a9143afcd75542a4939e493e87cf23b3d99840ccd3c6cdd7e547c65e3a72db3a",
+    "src/factories/bodyFactory.js": "9d47633c71361b81fc5518a1d0beaa1db6b7584a959af2789148b7aa6c4f4702",
+    "src/factories/cameraFactory.js": "27a0f1193c7e18e6193140c19b3ae733f330d69cfa2c639dfe16839a3719c29d",
+    "src/factories/geometry.js": "46695ca290383f4d494bf55a2b4d03fd736a335b1132c54bd20688becdfe0908",
+    "src/factories/index.js": "b59b31d09ed73c65fba89c957250a25610ab937cf36da9872b27e9e1c5ff7451",
+    "src/factories/partsFactory.js": "2c0ec4492290df1419381a063553035bd58ac78a76e74c83b4ca4c98b1fc2fce",
+    "src/factories/profileGeometry.js": "9f86a742f35eb073befa3eb4261e9b4d455ef3f932ea6555f7d83a2b1d1f684d",
+    "src/ui/componentTree.js": "a89ee1a91b10cce157b280d4e994589c7cba79a1bb76f8fe2150a9f2c3442c9b",
+    "src/ui/controls.js": "ba7036cc8233b6390bfd7c0046ac3789e0ef2c07d11a4f491cd1bce5e9865d0f",
+    "src/ui/infoPanel.js": "2af94f0e1f3f418b77a1368ad54b0de61dcad51c1f6c07724508ab6fa731f32a",
+    "src/ui/labels.js": "571104368edbe0a29148bcafd8d623290f4d500594bc7332d4c5f256580e6af9",
+    "src/ui/staticControls.js": "efe49b512e21c2891c57fcabf80bcd4b7257b8510ac771a7aa138e4e1dfb06d4",
+    "vendor/addons/controls/OrbitControls.js": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c",
+    "vendor/addons/environments/RoomEnvironment.js": "c20f0b4677f6128a138d7152b85cbef9091f4f45cdfa05adca04d40c1697c7ae",
+    "vendor/addons/utils/BufferGeometryUtils.js": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+    "vendor/fonts/Manrope-OFL.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "vendor/fonts/Manrope-Variable.ttf": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+    "vendor/THREE-LICENSE.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+    "vendor/three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+    "vendor/three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+  },
+  "sourceTreeSha256": "5c333b361b01c61756e66e448bdc6a19e991b11b1a75c382f02ceffa6bf46b75",
+  "privateAssets": [],
+  "passed": true
+}

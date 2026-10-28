@@ -13,18 +13,19 @@ export function batchPart(group) {
     geo.applyMatrix4(mesh.matrix);
     const key = mesh.material.uuid;
     if (!batches.has(key))
-      batches.set(key, { material: mesh.material, geometries: [] });
+      batches.set(key, { material: mesh.material, geometries: [], roles: new Set() });
     batches.get(key).geometries.push(geo);
+    if(mesh.userData.submeshRole)batches.get(key).roles.add(mesh.userData.submeshRole);
   }
   for (const mesh of [...group.children]) {
     mesh.geometry.dispose();
     group.remove(mesh);
   }
-  for (const { material, geometries } of batches.values()) {
+  for (const { material, geometries, roles } of batches.values()) {
     const merged = mergeGeometries(geometries, false);
     geometries.forEach((g) => g.dispose());
     if (!merged) throw Error("Cannot merge part geometry");
-    group.add(new THREE.Mesh(merged, material));
+    const mesh=new THREE.Mesh(merged,material);mesh.userData.submeshRoles=[...roles];group.add(mesh);
   }
   return group;
 }

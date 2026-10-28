@@ -1,0 +1,243 @@
+{
+  "sourceUrl": "https://consumer.huawei.com/cn/support/content/zh-cn16119818/",
+  "capturedAt": "2026-10-27",
+  "tier": "photo_inferred",
+  "imageSize": [
+    1798,
+    1025
+  ],
+  "bodyBounds": [
+    128,
+    127,
+    537,
+    984
+  ],
+  "method": "Manual pixel landmarks on the supplied official annotated rear view; width-normalized. No lens metadata or perspective correction available.",
+  "estimatedUncertainty": "landmarks +/- 4 px; ring edges +/- 6 px; overall photo projection +/- 3%; do not treat as mechanical metrology",
+  "points": {
+    "rear_left": {
+      "pixel": [
+        128,
+        556
+      ],
+      "normalized": [
+        -0.5,
+        -0.00122
+      ],
+      "projectedMM": [
+        -39.35,
+        -0.1
+      ]
+    },
+    "rear_right": {
+      "pixel": [
+        537,
+        556
+      ],
+      "normalized": [
+        0.5,
+        -0.00122
+      ],
+      "projectedMM": [
+        39.35,
+        -0.1
+      ]
+    },
+    "rear_top": {
+      "pixel": [
+        333,
+        127
+      ],
+      "normalized": [
+        0.00122,
+        1.04768
+      ],
+      "projectedMM": [
+        0.1,
+        82.45
+      ]
+    },
+    "rear_bottom": {
+      "pixel": [
+        333,
+        984
+      ],
+      "normalized": [
+        0.00122,
+        -1.04768
+      ],
+      "projectedMM": [
+        0.1,
+        -82.45
+      ]
+    },
+    "ring_left": {
+      "pixel": [
+        177,
+        316
+      ],
+      "normalized": [
+        -0.3802,
+        0.58557
+      ],
+      "projectedMM": [
+        -29.92,
+        46.08
+      ]
+    },
+    "ring_right": {
+      "pixel": [
+        489,
+        316
+      ],
+      "normalized": [
+        0.38264,
+        0.58557
+      ],
+      "projectedMM": [
+        30.11,
+        46.08
+      ]
+    },
+    "ring_top": {
+      "pixel": [
+        333,
+        159
+      ],
+      "normalized": [
+        0.00122,
+        0.96944
+      ],
+      "projectedMM": [
+        0.1,
+        76.29
+      ]
+    },
+    "ring_bottom": {
+      "pixel": [
+        333,
+        473
+      ],
+      "normalized": [
+        0.00122,
+        0.20171
+      ],
+      "projectedMM": [
+        0.1,
+        15.87
+      ]
+    },
+    "medallion_left": {
+      "pixel": [
+        266,
+        316
+      ],
+      "normalized": [
+        -0.16259,
+        0.58557
+      ],
+      "projectedMM": [
+        -12.8,
+        46.08
+      ]
+    },
+    "medallion_right": {
+      "pixel": [
+        400,
+        316
+      ],
+      "normalized": [
+        0.16504,
+        0.58557
+      ],
+      "projectedMM": [
+        12.99,
+        46.08
+      ]
+    },
+    "main_camera": {
+      "pixel": [
+        231,
+        316
+      ],
+      "normalized": [
+        -0.24817,
+        0.58557
+      ],
+      "projectedMM": [
+        -19.53,
+        46.08
+      ]
+    },
+    "ultrawide": {
+      "pixel": [
+        331,
+        219
+      ],
+      "normalized": [
+        -0.00367,
+        0.82274
+      ],
+      "projectedMM": [
+        -0.29,
+        64.75
+      ]
+    },
+    "telephoto": {
+      "pixel": [
+        432,
+        316
+      ],
+      "normalized": [
+        0.24328,
+        0.58557
+      ],
+      "projectedMM": [
+        19.15,
+        46.08
+      ]
+    },
+    "flash": {
+      "pixel": [
+        333,
+        414
+      ],
+      "normalized": [
+        0.00122,
+        0.34597
+      ],
+      "projectedMM": [
+        0.1,
+        27.23
+      ]
+    },
+    "textile_bottom": {
+      "pixel": [
+        333,
+        774
+      ],
+      "normalized": [
+        0.00122,
+        -0.53423
+      ],
+      "projectedMM": [
+        0.1,
+        -42.04
+      ]
+    },
+    "rear_corner_tangent": {
+      "pixel": [
+        180,
+        127
+      ],
+      "normalized": [
+        -0.37286,
+        1.04768
+      ],
+      "projectedMM": [
+        -29.34,
+        82.45
+      ]
+    }
+  }
+}

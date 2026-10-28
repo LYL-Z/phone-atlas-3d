@@ -1,6 +1,10 @@
 import { sources } from "../data/sources.js";
 export function setupControls(store, actions) {
   const $ = (id) => document.querySelector("#" + id);
+  $("immersive").onclick=()=>actions.immerse(document.body.dataset.immersive!=="true");
+  $("studio").onchange=e=>actions.studio(e.target.value);
+  $("quality").onchange=e=>actions.quality(e.target.value);
+  $("screen-power").onchange=e=>actions.screen(e.target.checked);
   $("progress").oninput = (e) => actions.scrub(Number(e.target.value));
   $("play").onclick = actions.play;
   $("reset").onclick = actions.reset;
@@ -33,6 +37,7 @@ export function setupControls(store, actions) {
     }
   });
   $("sources").onclick = () => $("source-dialog").showModal();
+  $("source-list").replaceChildren();
   for (const source of sources) {
     const article = document.createElement("article"),
       a = document.createElement("a"),

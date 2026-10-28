@@ -1,0 +1,10 @@
+import {spawnSync} from 'node:child_process';
+import {readFileSync,writeFileSync,readdirSync,statSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const walk=dir=>readdirSync(dir).flatMap(name=>{const path=dir+'/'+name;return statSync(path).isDirectory()?walk(path):[path];});
+const jobs=[['node tests',['--test',...walk('tests').filter(x=>x.endsWith('.test.mjs'))]],['geometry and surface contracts',['--experimental-loader','./tests/three-loader.mjs','tests/geometry-check.mjs']],['static build',['scripts/build.mjs']]];
+const results=jobs.map(([name,args])=>{const r=spawnSync(process.execPath,args,{encoding:'utf8'});return {name,exitCode:r.status,stdout:r.stdout,stderr:r.stderr};});
+const files=['index.html','styles.css',...walk('src'),...walk('vendor')];const hash=path=>{const data=readFileSync(path);return createHash('sha256').update(/\.(ttf|woff2?|png|jpg)$/i.test(path)?data:data.toString('utf8').replaceAll('\r\n','\n')).digest('hex');};
+const sourceHashes=Object.fromEntries(files.map(path=>[path,hash(path)]));const privateAssets=walk('dist').filter(x=>/reference-input|assets\/reference|Upgrade_Brief|Development_Prompt|Collector_Reference_Images/i.test(x));
+const report={hashMode:'Text normalized to LF; binary raw. Compare after checkout on any OS.',at:new Date().toISOString(),node:process.version,results,sourceHashes,sourceTreeSha256:createHash('sha256').update(JSON.stringify(sourceHashes)).digest('hex'),privateAssets,passed:results.every(x=>x.exitCode===0)&&privateAssets.length===0};
+writeFileSync('docs/upgrade-v1.1/evidence/G5/local-verification.json',JSON.stringify(report,null,2));console.log({passed:report.passed,sourceTreeSha256:report.sourceTreeSha256,checks:results.map(x=>[x.name,x.exitCode]),privateAssets});if(!report.passed)process.exitCode=1;
